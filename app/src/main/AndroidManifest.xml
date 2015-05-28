@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.android.shopping" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".PantallaInicio"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PantallaReportes"
+            android:label="@string/title_activity_pantalla_reportes" >
+        </activity>
+        <activity
+            android:name=".PantallaAsignados"
+            android:label="@string/title_activity_pantalla_asignados" >
+        </activity>
+        <activity
+            android:name=".PantallaAsignadosDetalle"
+            android:label="@string/title_activity_pantalla_asignados_detalle" >
+        </activity>
+        <activity
+            android:name=".PantallaConfiguraciones"
+            android:label="@string/title_activity_pantalla_configuraciones" >
+        </activity>
+    </application>
+
+</manifest>
