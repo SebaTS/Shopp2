@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 
 public class PantallaInicio extends ActionBarActivity {
@@ -37,6 +38,14 @@ public class PantallaInicio extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void Conectar(){
+        String user;
+        String pass;
+
+        user = (EditText)findViewById(R.id.txtUsuario);
+        pass = (EditText)findViewById(R.id.txtContrasena);
+
+    }
 
 
 

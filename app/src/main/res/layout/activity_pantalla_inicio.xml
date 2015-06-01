@@ -68,5 +68,6 @@
         android:id="@+id/btnConectar"
         android:layout_below="@+id/chkSesion"
         android:layout_centerHorizontal="true"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:onClick="Conectar" />
 </RelativeLayout>

@@ -15,11 +15,7 @@ public class Usuarios extends SQLiteOpenHelper {
 
     @Override
     public void onCreate (SQLiteDatabase db){
-        db.execSQL("CREATE TABLE Usuarios(\n" +
-                "id int IDENTITY (1,1),\n" +
-                "Usuario char (20) NOT NULL,\n" +
-                "Contraseña char (20) NOT NULL,\n" +
-                "Nombre char (50))");
+        db.execSQL("CREATE TABLE Usuarios(id int IDENTITY (1,1), Usuario char (20) NOT NULL, Contraseña char (20) NOT NULL, Nombre char (50))");
         db.close();
     }
 
@@ -34,15 +30,16 @@ public class Usuarios extends SQLiteOpenHelper {
 
     }
 
-    public void verificar(String Prueba){
+    public boolean verificar(String User, String Pass){
+        String Prueba;
         SQLiteDatabase db = getReadableDatabase();
-        Prueba = db.execSQL("Select Usuario, Contraseña FROM Usuarios WHERE Usuario = "++" AND Cotnraseña = "+);
+        Prueba = db.execSQL("Select Usuario, Contraseña FROM Usuarios WHERE Usuario = " + User + " AND Contraseña = " + Pass);
         if (Prueba = "") {
-            Message ()
+            return false;
+        }
+        else{
+            return true;
         }
         db.close();
     }
-
-
-
 }
