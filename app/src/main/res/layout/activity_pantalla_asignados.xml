@@ -7,41 +7,61 @@
     tools:context="com.example.android.shopping.PantallaAsignados"
     android:background="@drawable/pantalla_asignados">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Asignados"
-        android:id="@+id/textView"
-        android:layout_marginTop="61dp"
-        android:textSize="19dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:weightSum="1"
+        android:id="@+id/linearLayout6"
+        android:layout_marginBottom="20dp"
         android:layout_below="@+id/textView"
-        android:layout_marginTop="5dp">
-
-        <TextView
-            android:layout_width="285dp"
-            android:layout_height="wrap_content"
-            android:text="Asignaciones pendientes:"
-            android:id="@+id/textView2"
-            android:textIsSelectable="false"
-            android:textSize="20dp" />
+        android:layout_marginTop="10dp">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Lista de asignados pendientes:"
+                android:id="@+id/textView2"
+                android:layout_weight="0.51"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.05"></LinearLayout>
+            android:id="@+id/LWAsignados" />
+
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reportes"
+        android:id="@+id/textView"
+        android:layout_marginTop="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/linearLayout6"
+        android:layout_alignEnd="@+id/linearLayout6"
+        android:layout_marginRight="115dp"
+        android:layout_marginEnd="115dp"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asignados"
+        android:id="@+id/textView3"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignRight="@+id/linearLayout6"
+        android:layout_alignEnd="@+id/linearLayout6"
+        android:textSize="18dp" />
 
 </RelativeLayout>
