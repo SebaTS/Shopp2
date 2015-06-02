@@ -70,6 +70,6 @@
         android:onClick="Conectar"
         android:layout_alignBaseline="@+id/lblContrasena"
         android:layout_alignBottom="@+id/lblContrasena"
-        android:layout_alignRight="@+id/lblUsuario"
-        android:layout_alignEnd="@+id/lblUsuario" />
+        android:layout_alignRight="@+id/lblContrasena"
+        android:layout_alignEnd="@+id/lblContrasena" />
 </RelativeLayout>
