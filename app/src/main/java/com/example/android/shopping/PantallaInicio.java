@@ -16,7 +16,7 @@ public class PantallaInicio extends ActionBarActivity {
 
     ArrayList<Usuarios> listaDeUsuarios;
     private EditText userEditText;
-    private EditText pass;
+    private EditText passEditText;
     Usuarios user;
     Toast msg;
 
@@ -26,7 +26,7 @@ public class PantallaInicio extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_inicio);
         this.userEditText = (EditText) this.findViewById(R.id.txtUsuario);
-        this.pass = (EditText) this.findViewById(R.id.txtContrasena);
+        this.passEditText = (EditText) this.findViewById(R.id.txtContrasena);
         user = new Usuarios("prueba","prueba");
         listaDeUsuarios = new ArrayList<Usuarios>();
         listaDeUsuarios.add(user);
@@ -59,8 +59,8 @@ public class PantallaInicio extends ActionBarActivity {
 
     public boolean Verificar() {
         for (Usuarios u : listaDeUsuarios) {
-            if (u.getuser().equals(user.getuser())) {
-                if (u.getpass().equals(user.getpass())) {
+            if (u.getuser().equals(userEditText.getText().toString())) {
+                if (u.getpass().equals(passEditText.getText().toString())) {
                     return true;
                 }
                 msg = Toast.makeText(getApplicationContext(),"Contraseña incorrecta, por favor inténtelo nuevamente.", Toast.LENGTH_SHORT);
