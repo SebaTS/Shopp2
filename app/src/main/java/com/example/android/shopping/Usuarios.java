@@ -31,6 +31,4 @@ public class Usuarios {
         this.setuser(usuario);
         this.setpass(password);
     }
-
-
 }
