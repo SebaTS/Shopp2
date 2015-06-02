@@ -16,7 +16,7 @@
         android:weightSum="1"
         android:id="@+id/linearLayout6"
         android:layout_marginBottom="20dp"
-        android:layout_below="@+id/textView"
+        android:layout_below="@+id/lblReportes"
         android:layout_marginTop="10dp">
 
         <LinearLayout
@@ -31,7 +31,8 @@
                 android:text="Lista de asignados pendientes:"
                 android:id="@+id/textView2"
                 android:layout_weight="0.51"
-                android:textSize="22dp" />
+                android:textSize="22dp"
+                android:textColor="#ff000000" />
         </LinearLayout>
 
         <ListView
@@ -45,23 +46,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reportes"
-        android:id="@+id/textView"
-        android:layout_marginTop="70dp"
+        android:id="@+id/lblReportes"
+        android:layout_marginTop="63dp"
+        android:layout_marginRight="29dp"
+        android:layout_marginEnd="29dp"
+        android:textSize="18dp"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/linearLayout6"
-        android:layout_alignEnd="@+id/linearLayout6"
-        android:layout_marginRight="115dp"
-        android:layout_marginEnd="115dp"
-        android:textSize="18dp" />
+        android:layout_toLeftOf="@+id/textView3"
+        android:layout_toStartOf="@+id/textView3"
+        android:textColor="#89000000"
+        android:onClick="verPantallaReportesClick"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Asignados"
         android:id="@+id/textView3"
-        android:layout_alignTop="@+id/textView"
+        android:layout_alignTop="@+id/lblReportes"
         android:layout_alignRight="@+id/linearLayout6"
         android:layout_alignEnd="@+id/linearLayout6"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:textColor="#ff000000" />
 
 </RelativeLayout>
