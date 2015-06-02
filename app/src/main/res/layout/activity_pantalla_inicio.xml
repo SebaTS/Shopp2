@@ -66,8 +66,10 @@
         android:layout_height="wrap_content"
         android:text="Conectar"
         android:id="@+id/btnConectar"
-        android:layout_below="@+id/chkSesion"
-        android:layout_centerHorizontal="true"
         android:textSize="30dp"
-        android:onClick="Conectar" />
+        android:onClick="Conectar"
+        android:layout_alignBaseline="@+id/lblContrasena"
+        android:layout_alignBottom="@+id/lblContrasena"
+        android:layout_alignRight="@+id/lblUsuario"
+        android:layout_alignEnd="@+id/lblUsuario" />
 </RelativeLayout>

@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class PantallaInicio extends ActionBarActivity {
         this.userEditText = (EditText) this.findViewById(R.id.txtUsuario);
         this.pass = (EditText) this.findViewById(R.id.txtContrasena);
         user = new Usuarios("prueba","prueba");
+        listaDeUsuarios = new ArrayList<Usuarios>();
         listaDeUsuarios.add(user);
     }
 
@@ -57,20 +59,22 @@ public class PantallaInicio extends ActionBarActivity {
 
     public boolean Verificar() {
         for (Usuarios u : listaDeUsuarios) {
-            if (u.getuser().equals(user)) {
-                if (u.getpass().equals(pass)) {
+            if (u.getuser().equals(user.getuser())) {
+                if (u.getpass().equals(user.getpass())) {
                     return true;
                 }
                 msg = Toast.makeText(getApplicationContext(),"Contraseña incorrecta, por favor inténtelo nuevamente.", Toast.LENGTH_SHORT);
+                msg.show();
                 return false;
             }
         }
-        msg = Toast.makeText(getApplicationContext(),"Usuario inválido, por favor inténtelo nuevamente.", Toast.LENGTH_SHORT);
+        msg = Toast.makeText(getApplicationContext(),"Usuario inexistente, por favor inténtelo nuevamente.", Toast.LENGTH_SHORT);
+        msg.show();
         return false;
     }
 
 
-    public void Conectar(){
+    public void Conectar(View view) {
         if (Verificar()) {
             Intent intent = new Intent(getApplicationContext(), PantallaReportes.class);
             startActivity(intent);
