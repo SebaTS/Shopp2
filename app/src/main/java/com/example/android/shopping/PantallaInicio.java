@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -13,17 +14,20 @@ public class PantallaInicio extends ActionBarActivity {
 
 
     ArrayList<Usuarios> listaDeUsuarios;
-    private EditText user;
+    private EditText userEditText;
     private EditText pass;
+    Usuarios user;
+    Toast msg;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_inicio);
-        this.user = (EditText) this.findViewById(R.id.txtUsuario);
+        this.userEditText = (EditText) this.findViewById(R.id.txtUsuario);
         this.pass = (EditText) this.findViewById(R.id.txtContrasena);
-        Usuarios user = new Usuarios("prueba","prueba");
+        user = new Usuarios("prueba","prueba");
+        listaDeUsuarios.add(user);
     }
 
 
@@ -57,9 +61,11 @@ public class PantallaInicio extends ActionBarActivity {
                 if (u.getpass().equals(pass)) {
                     return true;
                 }
+                msg = Toast.makeText(getApplicationContext(),"Contraseña incorrecta, por favor inténtelo nuevamente.", Toast.LENGTH_SHORT);
+                return false;
             }
-            return false;
         }
+        msg = Toast.makeText(getApplicationContext(),"Usuario inválido, por favor inténtelo nuevamente.", Toast.LENGTH_SHORT);
         return false;
     }
 

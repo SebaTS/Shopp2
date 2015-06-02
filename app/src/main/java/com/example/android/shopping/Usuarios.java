@@ -4,10 +4,12 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 /**
  * Created by Seba on 30/05/2015.
  */
-public class Usuarios{
+public class Usuarios {
 
     private String user;
     private String pass;
@@ -30,5 +32,5 @@ public class Usuarios{
         this.setpass(password);
     }
 
-    ArrayList<Usuarios> listaDeUsuarios = (ArrayList<Usuarios>)getIntent().getExtras.get("listaDeUsuarios");
+
 }
