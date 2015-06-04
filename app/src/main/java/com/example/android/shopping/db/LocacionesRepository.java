@@ -24,7 +24,16 @@ public class LocacionesRepository {
         Locacion promo = new Locacion ("Promociones");
         Locacion turismo = new Locacion ("Turismo");
         listaDeLocaciones = new ArrayList<Locacion>();
-        listaDeLocaciones.add(baños, paco, mall, elevacion, comodities, ambiente, señaletica, sustentabilidad, seguridad, promo, turismo);
-
+        listaDeLocaciones.add(baños);
+        listaDeLocaciones.add(paco);
+        listaDeLocaciones.add(mall);
+        listaDeLocaciones.add(elevacion);
+        listaDeLocaciones.add(comodities);
+        listaDeLocaciones.add(ambiente);
+        listaDeLocaciones.add(señaletica);
+        listaDeLocaciones.add(sustentabilidad);
+        listaDeLocaciones.add(seguridad);
+        listaDeLocaciones.add(promo);
+        listaDeLocaciones.add(turismo);
     }
 }
