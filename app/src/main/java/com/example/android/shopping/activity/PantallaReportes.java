@@ -8,6 +8,8 @@ import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.android.shopping.R;
 
@@ -24,8 +26,8 @@ public class PantallaReportes extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_reportes);
-    }
 
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
