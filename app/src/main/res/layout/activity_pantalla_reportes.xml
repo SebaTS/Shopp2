@@ -38,10 +38,10 @@
                 android:textSize="23dp"
                 android:textColor="#ff000000" />
 
-            <ExpandableListView
+            <Spinner
                 android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:id="@+id/expandableListView" />
+                android:layout_height="fill_parent"
+                android:id="@+id/spLocacion" />
 
         </LinearLayout>
 
@@ -66,11 +66,12 @@
                 android:textSize="23dp"
                 android:textColor="#ff000000" />
 
-            <ExpandableListView
-                android:layout_width="198dp"
-                android:layout_height="28dp"
-                android:id="@+id/expandableListView2"
-                android:layout_weight="1.27" />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:id="@+id/spIndicador"
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -95,10 +96,12 @@
                 android:textSize="23dp"
                 android:textColor="#ff000000" />
 
-            <ExpandableListView
+            <Spinner
                 android:layout_width="wrap_content"
-                android:layout_height="28dp"
-                android:id="@+id/expandableListView3" />
+                android:layout_height="fill_parent"
+                android:id="@+id/spEvaluacion"
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
