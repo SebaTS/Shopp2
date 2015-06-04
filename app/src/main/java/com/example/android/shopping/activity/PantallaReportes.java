@@ -1,18 +1,17 @@
-package com.example.android.shopping;
+package com.example.android.shopping.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.provider.MediaStore;
+
+import com.example.android.shopping.R;
+
 import java.io.File;
-import java.io.IOException;
 
 
 public class PantallaReportes extends ActionBarActivity {

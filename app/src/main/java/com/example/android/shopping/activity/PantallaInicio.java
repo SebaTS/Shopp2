@@ -1,4 +1,4 @@
-package com.example.android.shopping;
+package com.example.android.shopping.activity;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -6,19 +6,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.example.android.shopping.R;
+import com.example.android.shopping.Usuario;
+import com.example.android.shopping.db.UsuariosRepository;
 
 public class PantallaInicio extends ActionBarActivity {
 
-
-    ArrayList<Usuarios> listaDeUsuarios;
     private EditText userEditText;
     private EditText passEditText;
-    Usuarios user;
+    private CheckBox sesion;
+    Usuario user;
     Toast msg;
+    private UsuariosRepository usuariosRepo;
 
 
     @Override
@@ -27,9 +30,10 @@ public class PantallaInicio extends ActionBarActivity {
         setContentView(R.layout.activity_pantalla_inicio);
         this.userEditText = (EditText) this.findViewById(R.id.txtUsuario);
         this.passEditText = (EditText) this.findViewById(R.id.txtContrasena);
-        user = new Usuarios("prueba","prueba");
-        listaDeUsuarios = new ArrayList<Usuarios>();
-        listaDeUsuarios.add(user);
+        this.sesion = (CheckBox) this.findViewById(R.id.chkSesion);
+
+        this.usuariosRepo = new UsuariosRepository();
+
     }
 
 
@@ -58,24 +62,22 @@ public class PantallaInicio extends ActionBarActivity {
 
 
     public boolean Verificar() {
-        for (Usuarios u : listaDeUsuarios) {
-            if (u.getuser().equals(userEditText.getText().toString())) {
-                if (u.getpass().equals(passEditText.getText().toString())) {
-                    return true;
-                }
-                msg = Toast.makeText(getApplicationContext(),"Contraseña incorrecta, por favor inténtelo nuevamente.", Toast.LENGTH_SHORT);
-                msg.show();
-                return false;
-            }
+        if (this.usuariosRepo.existeUsuario(userEditText.getText().toString(), passEditText.getText().toString())) {
+            return true;
+        } else {
+            msg = Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrectas, por favor inténtelo nuevamente.", Toast.LENGTH_SHORT);
+            msg.show();
+            return false;
         }
-        msg = Toast.makeText(getApplicationContext(),"Usuario inexistente, por favor inténtelo nuevamente.", Toast.LENGTH_SHORT);
-        msg.show();
-        return false;
     }
 
 
     public void Conectar(View view) {
         if (Verificar()) {
+            this.usuariosRepo.setRecordarUsuario(sesion.isChecked());
+            if (sesion.isChecked()) {
+
+            }
             Intent intent = new Intent(getApplicationContext(), PantallaReportes.class);
             startActivity(intent);
         }

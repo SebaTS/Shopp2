@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".PantallaInicio"
+            android:name=".activity.PantallaInicio"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,19 +17,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PantallaReportes"
+            android:name=".activity.PantallaReportes"
             android:label="@string/title_activity_pantalla_reportes" >
         </activity>
         <activity
-            android:name=".PantallaAsignados"
+            android:name=".activity.PantallaAsignados"
             android:label="@string/title_activity_pantalla_asignados" >
         </activity>
         <activity
-            android:name=".PantallaAsignadosDetalle"
+            android:name=".activity.PantallaAsignadosDetalle"
             android:label="@string/title_activity_pantalla_asignados_detalle" >
         </activity>
         <activity
-            android:name=".PantallaConfiguraciones"
+            android:name=".activity.PantallaConfiguraciones"
             android:label="@string/title_activity_pantalla_configuraciones" >
         </activity>
     </application>

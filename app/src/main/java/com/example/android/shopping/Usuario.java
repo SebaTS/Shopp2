@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /**
  * Created by Seba on 30/05/2015.
  */
-public class Usuarios {
+public class Usuario {
 
     private String user;
     private String pass;
@@ -27,7 +27,7 @@ public class Usuarios {
         return pass;
     }
 
-    public Usuarios(String usuario, String password) {
+    public Usuario(String usuario, String password) {
         this.setuser(usuario);
         this.setpass(password);
     }
