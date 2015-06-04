@@ -16,8 +16,8 @@
         android:weightSum="1"
         android:id="@+id/linearLayout6"
         android:layout_marginBottom="20dp"
-        android:layout_below="@+id/lblReportes"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="92dp"
+        android:layout_alignParentTop="true">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -42,30 +42,49 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Reportes"
-        android:id="@+id/lblReportes"
-        android:layout_marginTop="63dp"
-        android:layout_marginRight="29dp"
-        android:layout_marginEnd="29dp"
-        android:textSize="18dp"
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="378dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/textView3"
-        android:layout_toStartOf="@+id/textView3"
-        android:textColor="#89000000"
-        android:onClick="verPantallaReportesClick"/>
+        android:layout_alignBottom="@+id/linearLayout6">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Asignados"
-        android:id="@+id/textView3"
-        android:layout_alignTop="@+id/lblReportes"
-        android:layout_alignRight="@+id/linearLayout6"
-        android:layout_alignEnd="@+id/linearLayout6"
-        android:textSize="18dp"
-        android:textColor="#ff000000" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reportar"
+            android:id="@+id/button3"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="103dp"
+            android:layout_marginEnd="103dp"
+            android:layout_marginLeft="157dp"
+            android:layout_marginStart="157dp"
+            android:layout_marginTop="58dp"
+            android:layout_alignParentTop="true"
+            android:textSize="16dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Asignados"
+            android:id="@+id/button4"
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/button3"
+            android:layout_marginLeft="107dp"
+            android:layout_marginStart="107dp"
+            android:layout_alignLeft="@+id/button3"
+            android:layout_alignStart="@+id/button3"
+            android:textSize="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@android:color/transparent"
+            android:textColor="#75000000" />
+    </RelativeLayout>
 
 </RelativeLayout>
