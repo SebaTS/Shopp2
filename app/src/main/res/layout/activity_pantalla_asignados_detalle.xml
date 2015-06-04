@@ -14,7 +14,8 @@
         android:weightSum="1"
         android:id="@+id/linearLayout11"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="95dp">
+        android:layout_marginTop="95dp"
+        android:layout_alignParentBottom="true">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -36,6 +37,11 @@
                 android:layout_alignParentStart="true"
                 android:textSize="23dp"
                 android:textColor="#ff000000" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView6" />
 
         </LinearLayout>
 
@@ -59,6 +65,11 @@
                 android:layout_alignParentStart="true"
                 android:textSize="23dp"
                 android:textColor="#ff000000" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtvwIndicador" />
 
         </LinearLayout>
 
@@ -84,53 +95,38 @@
                 android:textSize="23dp"
                 android:textColor="#ff000000" />
 
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtvwEvaluacion" />
+
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout9"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:id="@+id/linearLayout10" >
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Foto"
-                android:id="@+id/button"
-                android:textSize="20dp" />
+            android:id="@+id/linearLayout10">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adjuntar"
-                android:id="@+id/textView6"
-                android:textSize="23dp"
-                android:textColor="#ff000000"
-                android:layout_below="@+id/textView5"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:id="@+id/txtvwAdjuntar" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Video"
-                android:id="@+id/button2"
-                android:textSize="20dp"
-                android:gravity="center_vertical" />
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="74dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout10"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_weight="0.42"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:layout_weight="0.64">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -144,24 +140,66 @@
                 android:layout_alignParentStart="true" />
 
             <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/textView8"
                 android:textSize="23dp"
                 android:autoText="false"
                 android:background="#fffffbfd"
-                android:layout_weight="0.53" />
+                android:layout_weight="0.89" />
         </LinearLayout>
 
-        <Button
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Enviar"
-            android:id="@+id/button3"
-            android:textSize="25dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal" />
+            android:layout_below="@+id/linearLayout11"
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ver Notas"
+                android:id="@+id/btnVerNotas"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/btnAgregarNotas"
+                android:layout_toStartOf="@+id/btnAgregarNotas"
+                android:layout_marginRight="26dp"
+                android:layout_marginEnd="26dp"
+                android:layout_alignBottom="@+id/btnAgregarNotas" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agregar Notas"
+                android:id="@+id/btnAgregarNotas"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="36dp"
+                android:layout_marginEnd="36dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="39dp">
+
+            <Spinner
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cambiar Estado"
+                android:id="@+id/btnCambiarEstado"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
     </LinearLayout>
 
     <TextView
@@ -191,4 +229,5 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
