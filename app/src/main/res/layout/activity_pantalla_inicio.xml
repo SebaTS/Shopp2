@@ -7,69 +7,89 @@
     android:background="@drawable/pantalla_inicio">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Usuario"
-        android:id="@+id/lblUsuario"
-        android:textSize="35dp"
-        android:textColor="#ff000000"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="202dp" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/relativeLayout">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtUsuario"
-        android:layout_below="@+id/lblUsuario"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ff000000"
-        android:textSize="30dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Usuario"
+            android:id="@+id/lblUsuario"
+            android:textSize="35dp"
+            android:textColor="#ff000000"
+            android:layout_marginTop="175dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Contraseña"
-        android:id="@+id/lblContrasena"
-        android:layout_below="@+id/txtUsuario"
-        android:layout_centerHorizontal="true"
-        android:textSize="35dp"
-        android:textColor="#ff000000" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/txtUsuario"
+            android:textColor="#ff000000"
+            android:textSize="30dp"
+            android:layout_below="@+id/lblUsuario"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/txtContrasena"
-        android:layout_below="@+id/lblContrasena"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ff000000"
-        android:textSize="30dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contraseña"
+            android:id="@+id/lblContrasena"
+            android:textSize="35dp"
+            android:textColor="#ff000000"
+            android:layout_below="@+id/txtUsuario"
+            android:layout_centerHorizontal="true" />
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:text="No cerrar sesión"
-        android:id="@+id/chkSesion"
-        android:textSize="25dp"
-        android:textColor="#ff000000"
-        android:layout_below="@+id/txtContrasena"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/txtContrasena"
+            android:textColor="#ff000000"
+            android:textSize="30dp"
+            android:layout_below="@+id/lblContrasena"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Conectar"
-        android:id="@+id/btnConectar"
-        android:textSize="30dp"
-        android:onClick="Conectar"
-        android:layout_alignBaseline="@+id/lblContrasena"
-        android:layout_alignBottom="@+id/lblContrasena"
-        android:layout_alignRight="@+id/lblContrasena"
-        android:layout_alignEnd="@+id/lblContrasena" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="bottom|top"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtContrasena"
+            android:id="@+id/relativeLayout2"
+            android:layout_alignParentBottom="true">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No cerrar sesión"
+                android:id="@+id/chkSesion"
+                android:textSize="25dp"
+                android:textColor="#ff000000"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Conectar"
+                android:id="@+id/btnConectar"
+                android:textSize="30dp"
+                android:onClick="Conectar"
+                android:layout_below="@+id/chkSesion"
+                android:layout_centerHorizontal="true" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
 </RelativeLayout>
