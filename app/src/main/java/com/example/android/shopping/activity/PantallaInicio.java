@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.android.shopping.R;
-import com.example.android.shopping.Usuario;
+import com.example.android.shopping.Entidades.Usuario;
 import com.example.android.shopping.db.UsuariosRepository;
 
 public class PantallaInicio extends ActionBarActivity {

@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reportar"
-            android:id="@+id/button3"
+            android:id="@+id/btnReportar"
             android:layout_alignParentBottom="true"
             android:layout_marginRight="103dp"
             android:layout_marginEnd="103dp"
@@ -67,15 +67,15 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:onClick="verPantallaReportesClick" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Asignados"
-            android:id="@+id/button4"
+            android:id="@+id/btnAsignados"
             android:layout_alignParentBottom="true"
-            android:layout_alignTop="@+id/button3"
             android:layout_marginLeft="107dp"
             android:layout_marginStart="107dp"
             android:layout_alignLeft="@+id/button3"
@@ -84,7 +84,8 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:background="@android:color/transparent"
-            android:textColor="#75000000" />
+            android:textColor="#75000000"
+            android:layout_alignTop="@+id/btnReportar" />
     </RelativeLayout>
 
 </RelativeLayout>

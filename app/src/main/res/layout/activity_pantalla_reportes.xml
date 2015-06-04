@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Reportar"
-            android:id="@+id/button"
+            android:id="@+id/btnReportar"
             android:layout_alignParentBottom="true"
             android:layout_marginRight="103dp"
             android:layout_marginEnd="103dp"
@@ -42,9 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Asignados"
-            android:id="@+id/button2"
+            android:id="@+id/btnAsignados"
             android:layout_alignParentBottom="true"
-            android:layout_alignTop="@+id/button"
             android:layout_marginLeft="107dp"
             android:layout_marginStart="107dp"
             android:layout_alignLeft="@+id/button"
@@ -53,7 +52,9 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:background="@android:color/transparent"
-            android:textColor="#75000000" />
+            android:textColor="#75000000"
+            android:layout_alignTop="@+id/btnReportar"
+            android:onClick="verPantallaAsignadosClick" />
     </RelativeLayout>
 
     <LinearLayout
@@ -225,7 +226,8 @@
             android:textSize="25dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="btnEnviarClick" />
 
     </LinearLayout>
 

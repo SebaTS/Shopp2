@@ -1,4 +1,4 @@
-package com.example.android.shopping;
+package com.example.android.shopping.Entidades;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

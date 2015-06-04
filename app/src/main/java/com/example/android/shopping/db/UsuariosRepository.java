@@ -1,6 +1,6 @@
 package com.example.android.shopping.db;
 
-import com.example.android.shopping.Usuario;
+import com.example.android.shopping.Entidades.Usuario;
 
 import java.util.ArrayList;
 
