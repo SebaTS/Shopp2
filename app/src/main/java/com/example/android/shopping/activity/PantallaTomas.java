@@ -8,15 +8,13 @@ import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import com.example.android.shopping.R;
 
 import java.io.File;
 
 
-public class PantallaReportes extends ActionBarActivity {
+public class PantallaTomas extends ActionBarActivity {
 
     private final String ruta_fotos = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/misfotos/";
     private File file = new File(ruta_fotos);
@@ -52,7 +50,7 @@ public class PantallaReportes extends ActionBarActivity {
     }
 
     public void verPantallaAsignadosClick (View v){
-        Intent intent = new Intent (getApplicationContext(), PantallaAsignados.class);
+        Intent intent = new Intent (getApplicationContext(), PantallaPlanilla.class);
         startActivity (intent);
     }
 

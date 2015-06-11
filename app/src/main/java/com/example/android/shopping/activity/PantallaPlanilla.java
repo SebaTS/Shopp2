@@ -10,19 +10,19 @@ import android.view.View;
 import com.example.android.shopping.R;
 
 
-public class PantallaAsignadosDetalle extends ActionBarActivity {
+public class PantallaPlanilla extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantalla_asignados_detalle);
+        setContentView(R.layout.activity_pantalla_asignados);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_pantalla_asignados_detalle, menu);
+        getMenuInflater().inflate(R.menu.menu_pantalla_asignados, menu);
         return true;
     }
 
@@ -40,9 +40,8 @@ public class PantallaAsignadosDetalle extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
     public void verPantallaReportesClick (View v){
-        Intent intent = new Intent (getApplicationContext(), PantallaReportes.class);
+        Intent intent = new Intent (getApplicationContext(), PantallaTomas.class);
         startActivity (intent);
     }
 }
