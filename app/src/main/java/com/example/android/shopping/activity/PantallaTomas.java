@@ -23,7 +23,7 @@ public class PantallaTomas extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantalla_reportes);
+        setContentView(R.layout.activity_pantalla_tomas);
 
     }
 

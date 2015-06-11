@@ -17,15 +17,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.PantallaReportes"
+            android:name=".activity.PantallaPlanilla"
             android:label="@string/title_activity_pantalla_reportes" >
         </activity>
         <activity
-            android:name=".activity.PantallaAsignados"
+            android:name=".activity.PantallaTomas"
             android:label="@string/title_activity_pantalla_asignados" >
         </activity>
         <activity
-            android:name=".activity.PantallaAsignadosDetalle"
+            android:name=".activity.PantallaIndicadores"
             android:label="@string/title_activity_pantalla_asignados_detalle" >
         </activity>
         <activity

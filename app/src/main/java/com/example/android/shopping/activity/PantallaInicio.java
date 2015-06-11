@@ -78,7 +78,7 @@ public class PantallaInicio extends ActionBarActivity {
             if (sesion.isChecked()) {
 
             }
-            Intent intent = new Intent(getApplicationContext(), PantallaTomas.class);
+            Intent intent = new Intent(getApplicationContext(), PantallaPlanilla.class);
             startActivity(intent);
         }
     }

@@ -15,7 +15,7 @@ public class PantallaIndicadores extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantalla_asignados_detalle);
+        setContentView(R.layout.activity_pantalla_indicadores);
     }
 
 

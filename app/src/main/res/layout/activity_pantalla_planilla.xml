@@ -5,7 +5,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.android.shopping.activity.PantallaPlanilla"
-    android:background="@drawable/fondo_madera">
+    android:background="@drawable/fondo_madera"
+    android:id="@+id/PantallaPlanilla">
 
     <LinearLayout
         android:orientation="vertical"
@@ -44,7 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spnFiltro"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:focusable="false" />
 
         <ListView
             android:layout_width="fill_parent"
