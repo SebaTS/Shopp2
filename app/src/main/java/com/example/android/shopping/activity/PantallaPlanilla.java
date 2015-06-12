@@ -19,7 +19,10 @@ import com.example.android.shopping.R;
 import com.example.android.shopping.db.LocacionesRepository;
 
 import java.security.KeyStore;
+import java.util.ArrayList;
 import java.util.List;
+
+import static android.R.layout.*;
 
 
 public class PantallaPlanilla extends ActionBarActivity {
@@ -29,6 +32,7 @@ public class PantallaPlanilla extends ActionBarActivity {
     private Spinner spinner;
     private ListView listview;
     private LocacionesRepository locaciones;
+    private ArrayAdapter<Locacion> adaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +43,18 @@ public class PantallaPlanilla extends ActionBarActivity {
         this.listview = (ListView)findViewById(R.id.lswLocaciones);
 
         spinner.setEnabled(false);
-        spinner.addView();
-
         listview.setEnabled(false);
+
         this.locaciones = new LocacionesRepository();
 
-        listview.addTouchables(locaciones);
+        adaptador = new ArrayAdapter<Locacion>(this, android.R.layout.simple_list_item_1, locaciones.listaDeLocaciones);
+        listview.setAdapter(adaptador);
+        adaptador.notifyDataSetChanged();
 
+//        ArrayList<String> lista = new ArrayList<String>();
+//        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_list_item_1, lista);
+//        listview.setAdapter(adaptador);
 //        adapter = null;
 //       adapter = new ListAdapter();
 //        listview.setAdapter(adapter);

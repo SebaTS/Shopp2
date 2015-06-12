@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class LocacionesRepository {
 
-    private ArrayList<Locacion> listaDeLocaciones;
+    public ArrayList<Locacion> listaDeLocaciones;
 
     public LocacionesRepository() {
 
