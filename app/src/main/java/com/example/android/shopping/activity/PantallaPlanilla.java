@@ -14,8 +14,10 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import com.example.android.shopping.Entidades.Filtro;
 import com.example.android.shopping.Entidades.Locacion;
 import com.example.android.shopping.R;
+import com.example.android.shopping.db.FiltrosRepository;
 import com.example.android.shopping.db.LocacionesRepository;
 
 import java.security.KeyStore;
@@ -32,7 +34,9 @@ public class PantallaPlanilla extends ActionBarActivity {
     private Spinner spinner;
     private ListView listview;
     private LocacionesRepository locaciones;
-    private ArrayAdapter<Locacion> adaptador;
+    private ArrayAdapter<Locacion> adaptadorLocaciones;
+    private FiltrosRepository filtros;
+    private ArrayAdapter<Filtro> adaptadorFiltros;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,34 +50,15 @@ public class PantallaPlanilla extends ActionBarActivity {
         listview.setEnabled(false);
 
         this.locaciones = new LocacionesRepository();
+        adaptadorLocaciones = new ArrayAdapter<Locacion>(this, android.R.layout.simple_list_item_1, locaciones.listaDeLocaciones);
+        listview.setAdapter(adaptadorLocaciones);
+        adaptadorLocaciones.notifyDataSetChanged();
 
-        adaptador = new ArrayAdapter<Locacion>(this, android.R.layout.simple_list_item_1, locaciones.listaDeLocaciones);
-        listview.setAdapter(adaptador);
-        adaptador.notifyDataSetChanged();
-
-//        ArrayList<String> lista = new ArrayList<String>();
-//        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_list_item_1, lista);
-//        listview.setAdapter(adaptador);
-//        adapter = null;
-//       adapter = new ListAdapter();
-//        listview.setAdapter(adapter);
-//        adapter.notifyDataSetChanged();
-
-
-
-        //Spinner spinner = (Spinner) findViewById(R.id.spnFiltro);
-        //LocacionesRepository repo = new LocacionesRepository();
-        //List<Locacion> locacion = repo.obtenerTodasLasCategorias();
-        //spinner.setAdapter(new ArrayAdapter<Locacion>(this, android.R.layout.simple_spinner_item, locacion)
-        // {
-
-           // @Override
-           // public View getView(int position, View convertView, ViewGroup parent) {
-           //     return super.getView(position, convertView, parent);
-        //    }
-        //});
-
+        this.filtros = new FiltrosRepository();
+        adaptadorFiltros = new ArrayAdapter<Filtro>(this,android.R.layout.simple_list_item_1, filtros.listaDeFiltros);
+        adaptadorFiltros = new
+        spinner.setAdapter(adaptadorFiltros);
+        adaptadorFiltros.notifyDataSetChanged();
     }
 
     public void verPantallaTomas (View v){
