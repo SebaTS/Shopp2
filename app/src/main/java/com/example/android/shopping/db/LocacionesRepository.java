@@ -1,5 +1,7 @@
 package com.example.android.shopping.db;
 
+import android.database.sqlite.SQLiteDatabase;
+
 import com.example.android.shopping.Entidades.Locacion;
 
 import java.util.ArrayList;
@@ -12,8 +14,8 @@ public class LocacionesRepository {
 
     public ArrayList<Locacion> listaDeLocaciones;
 
+    // Llena al array con las locaciones.
     public LocacionesRepository() {
-
         Locacion baños = new Locacion("Baños");
         Locacion paco = new Locacion("PaCo");
         Locacion mall = new Locacion("Mall");
@@ -39,6 +41,19 @@ public class LocacionesRepository {
         listaDeLocaciones.add(turismo);
     }
 
+    // Limpia el array, llenandolo con las locaciones que cumplan con el filtro.
+    public void MostrarLocaciones(String filtro){
+        listaDeLocaciones.clear();
+        if (filtro.equals("Baños")){
+            Locacion baños = new Locacion("Baños");
+            listaDeLocaciones.add(baños);
+        } else{
+            Locacion mall = new Locacion("Mall");
+            listaDeLocaciones.add(mall);
+        }
+    }
+
+    // Devuelve el array de locaciones.
     public List<Locacion> obtenerTodasLasCategorias() {
         return this.listaDeLocaciones;
     }

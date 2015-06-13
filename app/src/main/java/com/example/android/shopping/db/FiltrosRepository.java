@@ -13,12 +13,12 @@ public class FiltrosRepository {
 
     public ArrayList<Filtro> listaDeFiltros;
 
+    // Llena el array con los filtros.
     public FiltrosRepository() {
-
         Filtro baños = new Filtro("Baños");
         listaDeFiltros.add(baños);
-        Filtro estacionamientos = new Filtro("Estacionamientos");
-        listaDeFiltros.add(estacionamientos);
+        Filtro mall = new Filtro("Mall");
+        listaDeFiltros.add(mall);
 
 //        public FiltrosRepository(int filtroselec)
 //       ("SELECT Descripcion FROM Filtros WHERE Categoria = " + filtroselec);

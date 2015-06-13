@@ -38,6 +38,7 @@ public class PantallaPlanilla extends ActionBarActivity {
     private FiltrosRepository filtros;
     private ArrayAdapter<Filtro> adaptadorFiltros;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,28 +46,39 @@ public class PantallaPlanilla extends ActionBarActivity {
         this.boton = (Button)findViewById(R.id.btnIniciar);
         this.spinner = (Spinner)findViewById(R.id.spnFiltro);
         this.listview = (ListView)findViewById(R.id.lswLocaciones);
-
+        // Deshabilita el spinner y el listview.
         spinner.setEnabled(false);
         listview.setEnabled(false);
-
+        // Establece el adaptador para las locaciones.
         this.locaciones = new LocacionesRepository();
+        adaptadorLocaciones = null;
         adaptadorLocaciones = new ArrayAdapter<Locacion>(this, android.R.layout.simple_list_item_1, locaciones.listaDeLocaciones);
         listview.setAdapter(adaptadorLocaciones);
         adaptadorLocaciones.notifyDataSetChanged();
-
+        // Establece el adaptador para los filtros.
         this.filtros = new FiltrosRepository();
+        adaptadorFiltros = null;
         adaptadorFiltros = new ArrayAdapter<Filtro>(this,android.R.layout.simple_list_item_1, filtros.listaDeFiltros);
-        adaptadorFiltros = new
         spinner.setAdapter(adaptadorFiltros);
         adaptadorFiltros.notifyDataSetChanged();
     }
 
+    // Al hacer click en un item del list view, avanza a la pantalla de tomas.
     public void verPantallaTomas (View v){
         Intent intent = new Intent (getApplicationContext(), PantallaTomas.class);
         startActivity (intent);
     }
 
+    // Filtra las locaciones según el item elegido en el spinner.
+    public void Filtrar (){
+        adaptadorLocaciones = null;
+        this.locaciones = new LocacionesRepository();
+        locaciones.MostrarLocaciones(spinner.getSelectedItem().toString());
+        adaptadorLocaciones = new ArrayAdapter<Locacion>(this,android.R.layout.simple_list_item_1,locaciones.listaDeLocaciones);
+        listview.setAdapter(adaptadorLocaciones);
+    }
 
+    // Al precionar iniciar, el spinner y el listview son habilitados y el botón cambia su texto a "Terminar Recorrida".
     public void IniciarTerminar (View view){
         if (boton.getText().toString().equals("Iniciar Recorrida")){
             boton.setText("Terminar Recorrida");
@@ -77,5 +89,4 @@ public class PantallaPlanilla extends ActionBarActivity {
         }
 
     }
-
 }

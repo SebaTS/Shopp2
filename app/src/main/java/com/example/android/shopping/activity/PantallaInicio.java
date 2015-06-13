@@ -31,36 +31,10 @@ public class PantallaInicio extends ActionBarActivity {
         this.userEditText = (EditText) this.findViewById(R.id.txtUsuario);
         this.passEditText = (EditText) this.findViewById(R.id.txtContrasena);
         this.sesion = (CheckBox) this.findViewById(R.id.chkSesion);
-
         this.usuariosRepo = new UsuariosRepository();
-
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_pantalla_inicio, menu);
-        return true;
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
+    // Verifica la existencia del usuario Y la contraseña.
     public boolean Verificar() {
         if (this.usuariosRepo.existeUsuario(userEditText.getText().toString(), passEditText.getText().toString())) {
             return true;
@@ -71,7 +45,7 @@ public class PantallaInicio extends ActionBarActivity {
         }
     }
 
-
+    // Llama a Verificar, si devuelve que existe, avanza a la siguiente página.
     public void Conectar(View view) {
         if (Verificar()) {
             this.usuariosRepo.setRecordarUsuario(sesion.isChecked());
