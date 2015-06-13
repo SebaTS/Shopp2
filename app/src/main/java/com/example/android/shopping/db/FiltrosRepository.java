@@ -11,14 +11,14 @@ import java.util.ArrayList;
  */
 public class FiltrosRepository {
 
-    public ArrayList<Filtro> listaDeFiltros;
+    public ArrayList<String> listaDeFiltros;
 
     // Llena el array con los filtros.
     public FiltrosRepository() {
         Filtro baños = new Filtro("Baños");
-        listaDeFiltros.add(baños);
+        listaDeFiltros.add(baños.getfiltro());
         Filtro mall = new Filtro("Mall");
-        listaDeFiltros.add(mall);
+        listaDeFiltros.add(mall.getfiltro());
 
 //        public FiltrosRepository(int filtroselec)
 //       ("SELECT Descripcion FROM Filtros WHERE Categoria = " + filtroselec);

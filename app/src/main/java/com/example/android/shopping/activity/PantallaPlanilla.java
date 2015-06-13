@@ -34,7 +34,7 @@ public class PantallaPlanilla extends ActionBarActivity {
     private Spinner spinner;
     private ListView listview;
     private LocacionesRepository locaciones;
-    private ArrayAdapter<Locacion> adaptadorLocaciones;
+    private ArrayAdapter<String> adaptadorLocaciones;
     private FiltrosRepository filtros;
     private ArrayAdapter<Filtro> adaptadorFiltros;
 
@@ -52,15 +52,15 @@ public class PantallaPlanilla extends ActionBarActivity {
         // Establece el adaptador para las locaciones.
         this.locaciones = new LocacionesRepository();
         adaptadorLocaciones = null;
-        adaptadorLocaciones = new ArrayAdapter<Locacion>(this, android.R.layout.simple_list_item_1, locaciones.listaDeLocaciones);
+        adaptadorLocaciones = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, locaciones.listaDeLocaciones);
         listview.setAdapter(adaptadorLocaciones);
         adaptadorLocaciones.notifyDataSetChanged();
         // Establece el adaptador para los filtros.
-        this.filtros = new FiltrosRepository();
-        adaptadorFiltros = null;
-        adaptadorFiltros = new ArrayAdapter<Filtro>(this,android.R.layout.simple_list_item_1, filtros.listaDeFiltros);
-        spinner.setAdapter(adaptadorFiltros);
-        adaptadorFiltros.notifyDataSetChanged();
+//        this.filtros = new FiltrosRepository();
+//        adaptadorFiltros = null;
+//        adaptadorFiltros = new ArrayAdapter<Filtro>(this,android.R.layout.simple_list_item_1, filtros.listaDeFiltros);
+//        spinner.setAdapter(adaptadorFiltros);
+//        adaptadorFiltros.notifyDataSetChanged();
     }
 
     // Al hacer click en un item del list view, avanza a la pantalla de tomas.
@@ -74,7 +74,7 @@ public class PantallaPlanilla extends ActionBarActivity {
         adaptadorLocaciones = null;
         this.locaciones = new LocacionesRepository();
         locaciones.MostrarLocaciones(spinner.getSelectedItem().toString());
-        adaptadorLocaciones = new ArrayAdapter<Locacion>(this,android.R.layout.simple_list_item_1,locaciones.listaDeLocaciones);
+        adaptadorLocaciones = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,locaciones.listaDeLocaciones);
         listview.setAdapter(adaptadorLocaciones);
     }
 

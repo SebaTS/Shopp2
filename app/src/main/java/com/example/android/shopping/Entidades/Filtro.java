@@ -5,12 +5,12 @@ package com.example.android.shopping.Entidades;
  */
 public class Filtro {
 
-    private String descripcion;
+    private String filtro;
 
-    public void setDescripcion(String filtro){this.setDescripcion(filtro);}
-    public String getDescripcion(){ return descripcion; }
+    public void setfiltro(String descripcion){this.filtro = descripcion;}
+    public String getfiltro(){ return filtro; }
 
     public Filtro(String descripcion){
-        this.setDescripcion(descripcion);
+        this.setfiltro(descripcion);
     }
 }
