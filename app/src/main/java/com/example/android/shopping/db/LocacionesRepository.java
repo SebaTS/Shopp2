@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class LocacionesRepository {
 
-    public ArrayList<Locacion> listaDeLocaciones;
+    public ArrayList<String> listaDeLocaciones;
 
     // Llena al array con las locaciones.
     public LocacionesRepository() {
@@ -27,18 +27,18 @@ public class LocacionesRepository {
         Locacion seguridad = new Locacion("Medios de Seguridad");
         Locacion promo = new Locacion("Promociones");
         Locacion turismo = new Locacion("Turismo");
-        listaDeLocaciones = new ArrayList<Locacion>();
-        listaDeLocaciones.add(baños);
-        listaDeLocaciones.add(paco);
-        listaDeLocaciones.add(mall);
-        listaDeLocaciones.add(elevacion);
-        listaDeLocaciones.add(comodities);
-        listaDeLocaciones.add(ambiente);
-        listaDeLocaciones.add(señaletica);
-        listaDeLocaciones.add(sustentabilidad);
-        listaDeLocaciones.add(seguridad);
-        listaDeLocaciones.add(promo);
-        listaDeLocaciones.add(turismo);
+        listaDeLocaciones = new ArrayList<String>();
+        listaDeLocaciones.add(baños.getDescripcion());
+        listaDeLocaciones.add(paco.getDescripcion());
+        listaDeLocaciones.add(mall.getDescripcion());
+        listaDeLocaciones.add(elevacion.getDescripcion());
+        listaDeLocaciones.add(comodities.getDescripcion());
+        listaDeLocaciones.add(ambiente.getDescripcion());
+        listaDeLocaciones.add(señaletica.getDescripcion());
+        listaDeLocaciones.add(sustentabilidad.getDescripcion());
+        listaDeLocaciones.add(seguridad.getDescripcion());
+        listaDeLocaciones.add(promo.getDescripcion());
+        listaDeLocaciones.add(turismo.getDescripcion());
     }
 
     // Limpia el array, llenandolo con las locaciones que cumplan con el filtro.
@@ -46,15 +46,13 @@ public class LocacionesRepository {
         listaDeLocaciones.clear();
         if (filtro.equals("Baños")){
             Locacion baños = new Locacion("Baños");
-            listaDeLocaciones.add(baños);
+            listaDeLocaciones.add(baños.getDescripcion());
         } else{
             Locacion mall = new Locacion("Mall");
-            listaDeLocaciones.add(mall);
+            listaDeLocaciones.add(mall.getDescripcion());
         }
     }
 
     // Devuelve el array de locaciones.
-    public List<Locacion> obtenerTodasLasCategorias() {
-        return this.listaDeLocaciones;
-    }
+//    public List<Locacion> obtenerTodasLasCategorias() {        return this.listaDeLocaciones;    }
 }
