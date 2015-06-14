@@ -36,7 +36,7 @@ public class PantallaPlanilla extends ActionBarActivity {
     private LocacionesRepository locaciones;
     private ArrayAdapter<String> adaptadorLocaciones;
     private FiltrosRepository filtros;
-    private ArrayAdapter<Filtro> adaptadorFiltros;
+    private ArrayAdapter<String> adaptadorFiltros;
 
 
     @Override
@@ -52,15 +52,13 @@ public class PantallaPlanilla extends ActionBarActivity {
         // Establece el adaptador para las locaciones.
         this.locaciones = new LocacionesRepository();
         adaptadorLocaciones = null;
-        adaptadorLocaciones = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, locaciones.listaDeLocaciones);
+        adaptadorLocaciones = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , locaciones.listaDeLocaciones);
         listview.setAdapter(adaptadorLocaciones);
-        adaptadorLocaciones.notifyDataSetChanged();
         // Establece el adaptador para los filtros.
-//        this.filtros = new FiltrosRepository();
-//        adaptadorFiltros = null;
-//        adaptadorFiltros = new ArrayAdapter<Filtro>(this,android.R.layout.simple_list_item_1, filtros.listaDeFiltros);
-//        spinner.setAdapter(adaptadorFiltros);
-//        adaptadorFiltros.notifyDataSetChanged();
+        this.filtros = new FiltrosRepository();
+        adaptadorFiltros = null;
+        adaptadorFiltros = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, filtros.listaDeFiltros);
+        spinner.setAdapter(adaptadorFiltros);
     }
 
     // Al hacer click en un item del list view, avanza a la pantalla de tomas.

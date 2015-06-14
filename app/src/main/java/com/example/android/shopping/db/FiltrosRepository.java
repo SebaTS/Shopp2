@@ -16,8 +16,9 @@ public class FiltrosRepository {
     // Llena el array con los filtros.
     public FiltrosRepository() {
         Filtro baños = new Filtro("Baños");
-        listaDeFiltros.add(baños.getfiltro());
         Filtro mall = new Filtro("Mall");
+        listaDeFiltros = new ArrayList<String>();
+        listaDeFiltros.add(baños.getfiltro());
         listaDeFiltros.add(mall.getfiltro());
 
 //        public FiltrosRepository(int filtroselec)
