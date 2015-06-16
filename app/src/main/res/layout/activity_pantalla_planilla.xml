@@ -11,11 +11,14 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.51"
-        android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout6"
+        android:gravity="top"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_above="@+id/linearLayout13">
 
         <Spinner

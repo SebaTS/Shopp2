@@ -17,11 +17,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.PantallaPlanilla"
+            android:name=".activity.PantallaTomas"
             android:label="@string/title_activity_pantalla_reportes" >
         </activity>
         <activity
-            android:name=".activity.PantallaTomas"
+            android:name=".activity.PantallaPlanilla"
             android:label="@string/title_activity_pantalla_asignados" >
         </activity>
         <activity
