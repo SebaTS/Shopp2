@@ -18,6 +18,7 @@ public class FiltrosRepository {
         Filtro baños = new Filtro("Baños");
         Filtro mall = new Filtro("Mall");
         listaDeFiltros = new ArrayList<String>();
+        listaDeFiltros.add("Todos");
         listaDeFiltros.add(baños.getfiltro());
         listaDeFiltros.add(mall.getfiltro());
 
