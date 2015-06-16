@@ -41,6 +41,7 @@ public class PantallaPlanilla extends ActionBarActivity {
     private ArrayAdapter<String> adaptadorLocaciones;
     private FiltrosRepository filtros;
     private ArrayAdapter<String> adaptadorFiltros;
+    private EditText tvwlugar;
 
     // Inicio del Activity
     @Override
@@ -50,6 +51,8 @@ public class PantallaPlanilla extends ActionBarActivity {
         this.boton = (Button) findViewById(R.id.btnIniciar);
         this.spinner = (Spinner) findViewById(R.id.spnFiltro);
         this.listview = (ListView) findViewById(R.id.lswLocaciones);
+        this.tvwlugar = (EditText) findViewById(R.id.txtLocacion);
+
         // Deshabilita el spinner y el listview.
         spinner.setEnabled(false);
         listview.setEnabled(false);
@@ -78,7 +81,7 @@ public class PantallaPlanilla extends ActionBarActivity {
                 new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        seleccionarLocacion("Prueba");
+                        seleccionarLocacion();
                     }
                 }
         );
@@ -93,11 +96,9 @@ public class PantallaPlanilla extends ActionBarActivity {
     }
 
     // Abre PantallaTomas al seleccionar una locación.
-    private void seleccionarLocacion (String descripcion){
-        Intent intent = new Intent (getApplicationContext(), PantallaTomas.class);
-        Bundle tvwlugar = new Bundle();
-        tvwlugar.putString("tvwprueba", descripcion);
-        intent.putExtras(tvwlugar);
+    private void seleccionarLocacion (){
+        Intent intent = new Intent (this, PantallaTomas.class);
+        tvwlugar.setText("Prueba");
         startActivity(intent);
     }
 

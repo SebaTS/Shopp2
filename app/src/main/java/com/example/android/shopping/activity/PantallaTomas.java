@@ -11,7 +11,7 @@ import com.example.android.shopping.db.IndicadoresRepository;
 
 public class PantallaTomas extends ActionBarActivity {
 
-    private IndicadoresRepository indicadores;
+/*    private IndicadoresRepository indicadores;
     private TextView tvwlugar;
     private TextView tvwIndicador1 = (TextView)findViewById(R.id.lblIndicador);
     private TextView tvwIndicador2 = (TextView)findViewById(R.id.lblIndicador1);
@@ -45,7 +45,7 @@ public class PantallaTomas extends ActionBarActivity {
         }
     }
 
-
+*/
 
 
 
