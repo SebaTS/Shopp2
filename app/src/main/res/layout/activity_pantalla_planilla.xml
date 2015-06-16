@@ -52,7 +52,6 @@
             android:layout_height="wrap_content"
             android:text="Iniciar Recorrida"
             android:id="@+id/btnIniciar"
-            android:layout_gravity="center_horizontal"
             android:onClick="IniciarTerminar"
             android:textSize="35dp" />
     </LinearLayout>
