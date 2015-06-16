@@ -14,12 +14,15 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.android.shopping.Entidades.Filtro;
 import com.example.android.shopping.Entidades.Locacion;
 import com.example.android.shopping.R;
 import com.example.android.shopping.db.FiltrosRepository;
 import com.example.android.shopping.db.LocacionesRepository;
+
+import org.w3c.dom.Text;
 
 import java.security.KeyStore;
 import java.util.ArrayList;
@@ -44,9 +47,9 @@ public class PantallaPlanilla extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_planilla);
-        this.boton = (Button)findViewById(R.id.btnIniciar);
-        this.spinner = (Spinner)findViewById(R.id.spnFiltro);
-        this.listview = (ListView)findViewById(R.id.lswLocaciones);
+        this.boton = (Button) findViewById(R.id.btnIniciar);
+        this.spinner = (Spinner) findViewById(R.id.spnFiltro);
+        this.listview = (ListView) findViewById(R.id.lswLocaciones);
         // Deshabilita el spinner y el listview.
         spinner.setEnabled(false);
         listview.setEnabled(false);
@@ -54,22 +57,31 @@ public class PantallaPlanilla extends ActionBarActivity {
         // Establece el adaptador para los filtros.
         this.filtros = new FiltrosRepository();
         adaptadorFiltros = null;
-        adaptadorFiltros = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, filtros.listaDeFiltros);
+        adaptadorFiltros = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, filtros.listaDeFiltros);
         spinner.setAdapter(adaptadorFiltros);
 
         // Modifica la lista al seleccionar un filtro.
         this.locaciones = new LocacionesRepository();
         spinner.setOnItemSelectedListener(
-            new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    actualizarListaDeLocaciones(position);
-                }
+                new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        actualizarListaDeLocaciones(position);
+                    }
 
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+                    }
+                });
+
+        listview.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        seleccionarLocacion("Prueba");
+                    }
                 }
-        });
+        );
     }
 
     // Establece el adaptador para las locaciones.
@@ -80,18 +92,15 @@ public class PantallaPlanilla extends ActionBarActivity {
         listview.setAdapter(adaptadorLocaciones);
     }
 
-    // Al seleccionar un filtro
-//    @Override
-//    public boolean onOptionsItemSelected (MenuItem item){
-//    return;
-//    }
-
-
-    // Al hacer click en un item del list view, avanza a la pantalla de tomas.
-    public void verPantallaTomas (View v){
+    // Abre PantallaTomas al seleccionar una locación.
+    private void seleccionarLocacion (String descripcion){
         Intent intent = new Intent (getApplicationContext(), PantallaTomas.class);
-        startActivity (intent);
+        Bundle tvwlugar = new Bundle();
+        tvwlugar.putString("tvwprueba", descripcion);
+        intent.putExtras(tvwlugar);
+        startActivity(intent);
     }
+
 
     // Filtra las locaciones según el item elegido en el spinner.
     public void Filtrar (){

@@ -22,7 +22,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Locación"
-                android:id="@+id/textView2"
+                android:id="@+id/txtLocacion"
                 android:layout_alignBottom="@+id/scrollView"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
@@ -80,7 +80,8 @@
                         android:id="@+id/linearLayout2"
                         android:weightSum="1"
                     android:layout_below="@+id/linearLayout"
-                        android:layout_alignParentLeft="true">
+                        android:layout_alignParentLeft="true"
+                    android:visibility="visible">
 
                         <TextView
                             android:layout_width="wrap_content"
