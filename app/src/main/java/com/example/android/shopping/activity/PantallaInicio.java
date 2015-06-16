@@ -41,6 +41,8 @@ public class PantallaInicio extends ActionBarActivity {
         } else {
             msg = Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrectas, por favor inténtelo nuevamente.", Toast.LENGTH_SHORT);
             msg.show();
+            userEditText.setText("");
+            passEditText.setText("");
             return false;
         }
     }
