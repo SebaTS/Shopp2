@@ -11,7 +11,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:visibility="visible">
 
         <LinearLayout
             android:orientation="vertical"
@@ -59,17 +60,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Indicador"
-                        android:id="@+id/lblLocacion"
+                        android:id="@+id/lblIndicador"
                         android:layout_below="@+id/lblReportar"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:textSize="30dp"
-                        android:textColor="#ff000000" />
+                        android:textColor="#ff000000"
+                        android:visibility="invisible" />
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:id="@+id/spLocacion" />
+                        android:id="@+id/spIndicador"
+                        android:visibility="invisible" />
 
                 </LinearLayout>
 
@@ -87,18 +90,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Indicador"
-                            android:id="@+id/lblIndicador"
-                            android:layout_below="@+id/lblLocacion"
+                            android:id="@+id/lblIndicador1"
+                            android:layout_below="@+id/lblIndicador"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:textSize="30dp"
-                            android:textColor="#ff000000" />
+                            android:textColor="#ff000000"
+                            android:visibility="invisible" />
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
-                            android:id="@+id/spIndicador"
-                            android:layout_weight="1" />
+                            android:id="@+id/spIndicador1"
+                            android:layout_weight="1"
+                            android:visibility="invisible" />
 
                     </LinearLayout>
 
@@ -114,18 +119,20 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Indicador"
-                            android:id="@+id/lblEvaluacion"
-                            android:layout_below="@+id/lblIndicador"
+                            android:id="@+id/lblIndicador2"
+                            android:layout_below="@+id/lblIndicador1"
                             android:layout_alignParentLeft="true"
                             android:layout_alignParentStart="true"
                             android:textSize="30dp"
-                            android:textColor="#ff000000" />
+                            android:textColor="#ff000000"
+                            android:visibility="invisible" />
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="fill_parent"
-                            android:id="@+id/spEvaluacion"
-                            android:layout_weight="1" />
+                            android:id="@+id/spIndicador2"
+                            android:layout_weight="1"
+                            android:visibility="invisible" />
 
                     </LinearLayout>
 
@@ -141,17 +148,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Indicador"
-                        android:id="@+id/textView3"
+                        android:id="@+id/lblIndicador3"
                         android:layout_below="@+id/lblReportar"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:textSize="30dp"
-                        android:textColor="#ff000000" />
+                        android:textColor="#ff000000"
+                        android:visibility="invisible" />
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:id="@+id/spinner2" />
+                        android:id="@+id/spIndicador3"
+                        android:visibility="invisible" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -166,17 +175,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Indicador"
-                        android:id="@+id/textView9"
+                        android:id="@+id/lblIndicador4"
                         android:layout_below="@+id/lblReportar"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:textSize="30dp"
-                        android:textColor="#ff000000" />
+                        android:textColor="#ff000000"
+                        android:visibility="invisible" />
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:id="@+id/spinner3" />
+                        android:id="@+id/spIndicador4"
+                        android:visibility="invisible" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -191,17 +202,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Indicador"
-                        android:id="@+id/textView10"
+                        android:id="@+id/lblIndicador5"
                         android:layout_below="@+id/lblReportar"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:textSize="30dp"
-                        android:textColor="#ff000000" />
+                        android:textColor="#ff000000"
+                        android:visibility="invisible" />
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:id="@+id/spinner4" />
+                        android:id="@+id/spIndicador5"
+                        android:visibility="invisible" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -216,17 +229,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Indicador"
-                        android:id="@+id/textView11"
+                        android:id="@+id/lblIndicador6"
                         android:layout_below="@+id/lblReportar"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:textSize="30dp"
-                        android:textColor="#ff000000" />
+                        android:textColor="#ff000000"
+                        android:visibility="invisible" />
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:id="@+id/spinner5" />
+                        android:id="@+id/spIndicador6"
+                        android:visibility="invisible" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -241,17 +256,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Indicador"
-                        android:id="@+id/textView12"
+                        android:id="@+id/lblIndicador7"
                         android:layout_below="@+id/lblReportar"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:textSize="30dp"
-                        android:textColor="#ff000000" />
+                        android:textColor="#ff000000"
+                        android:visibility="invisible" />
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:id="@+id/spinner6" />
+                        android:id="@+id/spIndicador7"
+                        android:visibility="invisible" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -266,17 +283,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Indicador"
-                        android:id="@+id/textView13"
+                        android:id="@+id/lblIndicador8"
                         android:layout_below="@+id/lblReportar"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:textSize="30dp"
-                        android:textColor="#ff000000" />
+                        android:textColor="#ff000000"
+                        android:visibility="invisible" />
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:id="@+id/spinner7" />
+                        android:id="@+id/spIndicador8"
+                        android:visibility="invisible" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -291,17 +310,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Indicador"
-                        android:id="@+id/textView14"
+                        android:id="@+id/lblIndicador9"
                         android:layout_below="@+id/lblReportar"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:textSize="30dp"
-                        android:textColor="#ff000000" />
+                        android:textColor="#ff000000"
+                        android:visibility="invisible" />
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:id="@+id/spinner8" />
+                        android:id="@+id/spIndicador9"
+                        android:visibility="invisible" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -316,17 +337,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Indicador"
-                        android:id="@+id/textView15"
+                        android:id="@+id/lblIndicador10"
                         android:layout_below="@+id/lblReportar"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
                         android:textSize="30dp"
-                        android:textColor="#ff000000" />
+                        android:textColor="#ff000000"
+                        android:visibility="invisible" />
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="fill_parent"
-                        android:id="@+id/spinner9" />
+                        android:id="@+id/spIndicador10"
+                        android:visibility="invisible" />
                 </LinearLayout>
 
             </LinearLayout>
