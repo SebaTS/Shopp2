@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,7 +39,7 @@ public class PantallaPlanilla extends ActionBarActivity {
     private FiltrosRepository filtros;
     private ArrayAdapter<String> adaptadorFiltros;
 
-
+    // Inicio del Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,17 +50,42 @@ public class PantallaPlanilla extends ActionBarActivity {
         // Deshabilita el spinner y el listview.
         spinner.setEnabled(false);
         listview.setEnabled(false);
-        // Establece el adaptador para las locaciones.
-        this.locaciones = new LocacionesRepository();
-        adaptadorLocaciones = null;
-        adaptadorLocaciones = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , locaciones.listaDeLocaciones);
-        listview.setAdapter(adaptadorLocaciones);
+
         // Establece el adaptador para los filtros.
         this.filtros = new FiltrosRepository();
         adaptadorFiltros = null;
         adaptadorFiltros = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, filtros.listaDeFiltros);
         spinner.setAdapter(adaptadorFiltros);
+
+        // Modifica la lista al seleccionar un filtro.
+        this.locaciones = new LocacionesRepository();
+        spinner.setOnItemSelectedListener(
+            new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    actualizarListaDeLocaciones(position);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                }
+        });
     }
+
+    // Establece el adaptador para las locaciones.
+    private void actualizarListaDeLocaciones(int filtro) {
+
+        adaptadorLocaciones = null;
+        adaptadorLocaciones = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , locaciones.obtenerLocaciones(filtro));
+        listview.setAdapter(adaptadorLocaciones);
+    }
+
+    // Al seleccionar un filtro
+//    @Override
+//    public boolean onOptionsItemSelected (MenuItem item){
+//    return;
+//    }
+
 
     // Al hacer click en un item del list view, avanza a la pantalla de tomas.
     public void verPantallaTomas (View v){
@@ -76,7 +102,7 @@ public class PantallaPlanilla extends ActionBarActivity {
         listview.setAdapter(adaptadorLocaciones);
     }
 
-    // Al precionar iniciar, el spinner y el listview son habilitados y el botón cambia su texto a "Terminar Recorrida".
+    // Al presionar iniciar, el spinner y el listview son habilitados y el botón cambia su texto a "Terminar Recorrida".
     public void IniciarTerminar (View view){
         if (boton.getText().toString().equals("Iniciar Recorrida")){
             boton.setText("Terminar Recorrida");
