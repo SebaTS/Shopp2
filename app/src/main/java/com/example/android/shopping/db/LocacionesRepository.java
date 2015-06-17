@@ -60,18 +60,23 @@ public class LocacionesRepository {
         listaDeLocacionesMall.add(mall5.getDescripcion());
     }
 
+    // MÉTODO VIEJO.
     // Limpia el array, llenandolo con las locaciones que cumplan con el filtro.
-    public void MostrarLocaciones(String filtro){
-        listaDeLocaciones.clear();
-        if (filtro.equals("Baños")){
-            Locacion baños = new Locacion("Baños");
-            listaDeLocaciones.add(baños.getDescripcion());
-        } else{
-            Locacion mall = new Locacion("Mall");
-            listaDeLocaciones.add(mall.getDescripcion());
-        }
-    }
+//    public void MostrarLocaciones(int filtro){
+//        listaDeLocaciones.clear();
+//        if (filtro == 1){
+//            Locacion baños = new Locacion("Baños");
+//            listaDeLocaciones.add(baños.getDescripcion());
+//        } else if (filtro == 2) {
+//            Locacion mall = new Locacion("Mall");
+//            listaDeLocaciones.add(mall.getDescripcion());
+//        } else if (filtro.equals("Todos")){
+//            listaDeLocaciones.add("Todos");
+//        }
+//    }
 
+    // MÉTODO NUEVO
+    // Devuelve el array correspondiente al filtro.
     public ArrayList<String> obtenerLocaciones(int filtro) {
         ArrayList<String> locaciones = null;
 

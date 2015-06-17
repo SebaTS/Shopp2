@@ -100,22 +100,9 @@ public class PantallaPlanilla extends ActionBarActivity {
     // Abre PantallaTomas al seleccionar una locación.
     private void seleccionarLocacion (int locacionSeleccionada){
         Intent intent = new Intent (getApplicationContext(), PantallaTomas.class);
-
         String prueba = locaciones.obtenerLocaciones(filtroSeleccionado).get(locacionSeleccionada);
-
         intent.putExtra("Prueba", prueba);
-
         startActivity(intent);
-    }
-
-
-    // Filtra las locaciones según el item elegido en el spinner.
-    public void Filtrar (){
-        adaptadorLocaciones = null;
-        this.locaciones = new LocacionesRepository();
-        locaciones.MostrarLocaciones(spinner.getSelectedItem().toString());
-        adaptadorLocaciones = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,locaciones.listaDeLocaciones);
-        listview.setAdapter(adaptadorLocaciones);
     }
 
     // Al presionar iniciar, el spinner y el listview son habilitados y el botón cambia su texto a "Terminar Recorrida".
