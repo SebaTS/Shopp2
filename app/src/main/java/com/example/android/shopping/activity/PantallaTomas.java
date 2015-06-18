@@ -31,6 +31,7 @@ public class PantallaTomas extends ActionBarActivity {
     private IndicadoresRepository indicadores;
 
     private TextView tvwUsuario;
+    private String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,6 +106,8 @@ public class PantallaTomas extends ActionBarActivity {
                 Intent intent = new Intent(getApplicationContext(), PantallaAdicional.class);
                 intent.putExtra("Locacion", newString);
                 intent.putExtra("Indicador", indicador);
+                String user = tvwUsuario.getText().toString();
+                intent.putExtra("Usuario", user);
                 startActivity(intent);
             }
         });

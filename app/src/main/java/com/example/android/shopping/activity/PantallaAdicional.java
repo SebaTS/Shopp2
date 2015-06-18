@@ -26,11 +26,17 @@ public class PantallaAdicional extends ActionBarActivity {
     private final String ruta_fotos = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/temp/" + "/" + tvwlugar + "/" + tvwindica;
     private File file = new File(ruta_fotos);
     private Editable nombrefoto;
-
+    private TextView tvwUsuario;
+    String newExtras;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_adicional);
+
+        this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);
+        Bundle extras1 = getIntent().getExtras();
+        newExtras = extras1.getString("Usuario");
+        tvwUsuario.setText(newExtras);
 
         tvwlugar = (TextView) findViewById(R.id.tvwLocacion);
         locacionString = new String();
@@ -63,4 +69,10 @@ public class PantallaAdicional extends ActionBarActivity {
         startActivityForResult(cameraIntent, 0);
 
     }
+
+    public void accederConfiguraciones (View view){
+        Intent intent2 = new Intent (getApplicationContext(), PantallaConfiguraciones.class);
+        startActivity(intent2);
+    }
+
 }
