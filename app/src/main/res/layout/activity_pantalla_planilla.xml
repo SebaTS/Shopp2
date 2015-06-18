@@ -16,24 +16,52 @@
         android:layout_weight="0.51"
         android:id="@+id/linearLayout6"
         android:gravity="top"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/linearLayout13">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnconfig"
+                android:layout_gravity="right"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/tvwUsuario"
+                android:layout_marginLeft="230dp"
+                android:layout_marginStart="230dp"
+                android:layout_alignBottom="@+id/tvwUsuario"
+                android:background="@drawable/tuerca"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="false" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuario"
+                android:id="@+id/tvwUsuario"
+                android:textSize="23dp"
+                android:textColor="#ff000000" />
+        </RelativeLayout>
 
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spnFiltro"
-            android:layout_gravity="center_horizontal"
-            android:focusable="false" />
+            android:focusable="false"
+            android:visibility="visible" />
 
         <ListView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/lswLocaciones"
             android:background="#00000000"
-            android:cacheColorHint="#ffffffff" />
+            android:cacheColorHint="#ffffffff"
+            android:visibility="visible" />
 
     </LinearLayout>
 
@@ -53,7 +81,7 @@
             android:text="Iniciar Recorrida"
             android:id="@+id/btnIniciar"
             android:onClick="IniciarTerminar"
-            android:textSize="35dp" />
+            android:textSize="30dp" />
     </LinearLayout>
 
 </RelativeLayout>

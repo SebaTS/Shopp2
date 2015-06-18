@@ -42,8 +42,9 @@ public class PantallaPlanilla extends ActionBarActivity {
     private FiltrosRepository filtros;
     private ArrayAdapter<String> adaptadorFiltros;
     public EditText tvwlugar;
-
+    String newString;
     private int filtroSeleccionado;
+    private TextView tvwUsuario;
 
     // Inicio del Activity
     @Override
@@ -53,11 +54,14 @@ public class PantallaPlanilla extends ActionBarActivity {
         this.boton = (Button) findViewById(R.id.btnIniciar);
         this.spinner = (Spinner) findViewById(R.id.spnFiltro);
         this.listview = (ListView) findViewById(R.id.lswLocaciones);
+        this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);
         this.tvwlugar = (EditText) findViewById(R.id.txtLocacion);
         // Deshabilita el spinner y el listview.
         spinner.setEnabled(false);
         listview.setEnabled(false);
-
+        Bundle extras = getIntent().getExtras();
+        newString = extras.getString("Usuario");
+        tvwUsuario.setText(newString);
 
         // Establece el adaptador para los filtros.
         this.filtros = new FiltrosRepository();

@@ -19,7 +19,7 @@ public class PantallaInicio extends ActionBarActivity {
     private EditText userEditText;
     private EditText passEditText;
     private CheckBox sesion;
-    Usuario user;
+    private String user;
     Toast msg;
     private UsuariosRepository usuariosRepo;
 
@@ -55,6 +55,8 @@ public class PantallaInicio extends ActionBarActivity {
 
             }
             Intent intent = new Intent(getApplicationContext(), PantallaPlanilla.class);
+            String user = userEditText.getText().toString();
+            intent.putExtra("Usuario", user);
             startActivity(intent);
         }
     }
