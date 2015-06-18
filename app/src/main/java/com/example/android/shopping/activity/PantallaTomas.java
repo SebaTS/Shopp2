@@ -12,8 +12,12 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.android.shopping.Entidades.Indicador;
 import com.example.android.shopping.R;
 import com.example.android.shopping.db.EvaluacionesRepository;
+import com.example.android.shopping.db.IndicadoresRepository;
+
+import java.util.List;
 
 
 public class PantallaTomas extends ActionBarActivity {
@@ -24,6 +28,8 @@ public class PantallaTomas extends ActionBarActivity {
     private ArrayAdapter<String> adaptadorSpinner;
     private EvaluacionesRepository evaluacion;
     public String indicador = new String();
+    private IndicadoresRepository indicadores;
+
     private TextView tvwUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,23 +48,32 @@ public class PantallaTomas extends ActionBarActivity {
         tvwlugar.setText(newString);
 
         // Se debe hacer un COUNT de los indicadores.
-        int countIndicadores = 10;
+        indicadores = new IndicadoresRepository(2);
+        List<Indicador> listaIndicadores = indicadores.getIndicadores(2);
+        int countIndicadores= listaIndicadores.size();
         Spinner[] spnIndicador = new Spinner[countIndicadores];
         final Button[] btnIndicador = new Button[countIndicadores];
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayout5656);
 
-        // Se agregan dinámicamente los controles de la pantalla
-        for (int i = 0; i < countIndicadores; i++) {
+        int i = 0;
+        for(Indicador ind : listaIndicadores) {
+            // Se agregan dinámicamente los controles de la pantalla
             LinearLayout layoutHorizontal = createLayoutHorizontal();
-            btnIndicador[i] = this.createIndicador("prueba" + i);
+            btnIndicador[i] = this.createIndicador(ind.getdescr());
             spnIndicador[i] = this.createSpinner();
 
             layoutHorizontal.addView(btnIndicador[i]);
             layoutHorizontal.addView(spnIndicador[i]);
 
             linearLayout.addView(layoutHorizontal);
+            i++;
         }
     }
+
+
+/*--------------------------------------------------------------------------------------------------
+-------------------------------------- Private/helper methods --------------------------------------
+--------------------------------------------------------------------------------------------------*/
 
     private Spinner createSpinner() {
         Spinner spn = new Spinner(this);
@@ -92,9 +107,7 @@ public class PantallaTomas extends ActionBarActivity {
                 intent.putExtra("Indicador", indicador);
                 startActivity(intent);
             }
-
         });
-
         return btn;
     }
 

@@ -1,86 +1,85 @@
 package com.example.android.shopping.db;
 
+import android.widget.Switch;
+
 import com.example.android.shopping.Entidades.Indicador;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.zip.InflaterInputStream;
 
 /**
  * Created by android on 04/06/2015.
  */
 public class IndicadoresRepository {
 
-    private ArrayList<Indicador> listaDeIndicadores;
-    public IndicadoresRepository(){
-        listaDeIndicadores = new ArrayList<Indicador>();
+    private ArrayList<Indicador> listaDeMalls = new ArrayList<Indicador>();
+    private ArrayList<Indicador> listaDeBaños = new ArrayList<Indicador>();
+    private ArrayList<Indicador> listaDeEstacionamientos = new ArrayList<Indicador>();
+    private ArrayList<Indicador> listaDeIndicadores = new ArrayList<Indicador>();
+    public int contador;
 
-        Indicador mall1 = new Indicador("Mall", "Limpieza");
-        Indicador mall2 = new Indicador("Mall", "Pisos");
-        Indicador mall3 = new Indicador("Mall", "Vidrios");
-        Indicador mall4 = new Indicador("Mall", "Estado cestos");
-        Indicador mall5 = new Indicador("Mall", "Estética del cableado");
-        Indicador mall6 = new Indicador("Mall", "Señalética / Graficas");
-        Indicador mall7 = new Indicador("Mall", "Aromatización");
-        Indicador mall8 = new Indicador("Mall", "Fumigación");
-        Indicador mall9 = new Indicador("Mall", "Estado General");
+    public IndicadoresRepository(int i){
 
-        listaDeIndicadores.add (mall1);
-        listaDeIndicadores.add (mall2);
-        listaDeIndicadores.add (mall3);
-        listaDeIndicadores.add (mall4);
-        listaDeIndicadores.add (mall5);
-        listaDeIndicadores.add (mall6);
-        listaDeIndicadores.add (mall7);
-        listaDeIndicadores.add (mall8);
-        listaDeIndicadores.add (mall9);
+        if (i < 5) {
+            listaDeMalls.add(new Indicador("Mall", "Limpieza"));
+            listaDeMalls.add(new Indicador("Mall", "Pisos"));
+            listaDeMalls.add(new Indicador("Mall", "Vidrios"));
+            listaDeMalls.add(new Indicador("Mall", "Estado cestos"));
+            listaDeMalls.add(new Indicador("Mall", "Estética del cableado"));
+            listaDeMalls.add(new Indicador("Mall", "Señalética / Graficas"));
+            listaDeMalls.add(new Indicador("Mall", "Aromatización"));
+            listaDeMalls.add(new Indicador("Mall", "Fumigación"));
+            listaDeMalls.add(new Indicador("Mall", "Estado General"));
 
-        Indicador baño1 = new Indicador ("Baño", "Limpieza");
-        Indicador baño2 = new Indicador ("Baño", "Pisos");
-        Indicador baño3 = new Indicador ("Baño", "Vidrios");
-        Indicador baño4 = new Indicador ("Baño", "Estado cestos");
-        Indicador baño5 = new Indicador ("Baño", "Estética del cableado");
-        Indicador baño6 = new Indicador ("Baño", "Señalética / Graficas");
-        Indicador baño7 = new Indicador ("Baño", "Funcionamiento");
-        Indicador baño8 = new Indicador ("Baño", "Insumos");
-        Indicador baño9 = new Indicador ("Baño", "Aromatización");
-        Indicador baño10 = new Indicador ("Baño", "Fumigación");
-        Indicador baño11 = new Indicador ("Baño", "Estado General");
+            contador = listaDeMalls.size();
 
-        listaDeIndicadores.add (baño1);
-        listaDeIndicadores.add (baño2);
-        listaDeIndicadores.add (baño3);
-        listaDeIndicadores.add (baño4);
-        listaDeIndicadores.add (baño5);
-        listaDeIndicadores.add (baño6);
-        listaDeIndicadores.add (baño7);
-        listaDeIndicadores.add (baño8);
-        listaDeIndicadores.add (baño9);
-        listaDeIndicadores.add (baño10);
-        listaDeIndicadores.add (baño11);
+        }else if (i < 10) {
 
-        Indicador bañodis1 = new Indicador ("Baño", "Limpieza");
-        Indicador bañodis2 = new Indicador ("Baño", "Pisos");
-        Indicador bañodis3 = new Indicador ("Baño", "Barandas");
-        Indicador bañodis4 = new Indicador ("Baño", "Vidrios");
-        Indicador bañodis5 = new Indicador ("Baño", "Estado cestos");
-        Indicador bañodis6 = new Indicador ("Baño", "Estética del cableado");
-        Indicador bañodis7 = new Indicador ("Baño", "Señalética / Graficas");
-        Indicador bañodis8 = new Indicador ("Baño", "Funcionamiento");
-        Indicador bañodis9 = new Indicador ("Baño", "Insumos");
-        Indicador bañodis10 = new Indicador ("Baño", "Aromatización");
-        Indicador bañodis11 = new Indicador ("Baño", "Fumigación");
-        Indicador bañodis12 = new Indicador ("Baño", "Estado General");
+            listaDeEstacionamientos.add(new Indicador("Estacionamiento", "Limpieza"));
+            listaDeEstacionamientos.add(new Indicador("Estacionamiento", "Pisos"));
+            listaDeEstacionamientos.add(new Indicador("Estacionamiento", "Vidrios"));
+            listaDeEstacionamientos.add(new Indicador("Estacionamiento", "Estado cestos"));
+            listaDeEstacionamientos.add(new Indicador("Estacionamiento", "Estética del cableado"));
+            listaDeEstacionamientos.add(new Indicador("Estacionamiento", "Señalética / Graficas"));
+            listaDeEstacionamientos.add(new Indicador("Estacionamiento", "Aromatización"));
+            listaDeEstacionamientos.add(new Indicador("Estacionamiento", "Fumigación"));
+            listaDeEstacionamientos.add(new Indicador("Estacionamiento", "Estado General"));
 
-        listaDeIndicadores.add (bañodis1);
-        listaDeIndicadores.add (bañodis2);
-        listaDeIndicadores.add (bañodis3);
-        listaDeIndicadores.add (bañodis4);
-        listaDeIndicadores.add (bañodis5);
-        listaDeIndicadores.add (bañodis6);
-        listaDeIndicadores.add (bañodis7);
-        listaDeIndicadores.add (bañodis8);
-        listaDeIndicadores.add (bañodis9);
-        listaDeIndicadores.add (bañodis10);
-        listaDeIndicadores.add (bañodis11);
-        listaDeIndicadores.add (bañodis12);
+            contador = listaDeEstacionamientos.size();
+
+        }else{
+
+            listaDeBaños.add(new Indicador("Baño", "Limpieza"));
+            listaDeBaños.add(new Indicador("Baño", "Pisos"));
+            listaDeBaños.add(new Indicador("Baño", "Vidrios"));
+            listaDeBaños.add(new Indicador("Baño", "Estado cestos"));
+            listaDeBaños.add(new Indicador("Baño", "Estética del cableado"));
+            listaDeBaños.add(new Indicador("Baño", "Señalética / Graficas"));
+            listaDeBaños.add(new Indicador("Baño", "Funcionamiento"));
+            listaDeBaños.add(new Indicador("Baño", "Insumos"));
+            listaDeBaños.add(new Indicador("Baño", "Aromatización"));
+            listaDeBaños.add(new Indicador("Baño", "Fumigación"));
+            listaDeBaños.add(new Indicador("Baño", "Estado General"));
+
+            contador = listaDeBaños.size();
+        }
+    }
+
+
+    public List<Indicador> getIndicadores(int i) {
+        if (i < 5) {
+
+            return listaDeMalls;
+
+        }else if (i < 10) {
+
+            return listaDeEstacionamientos;
+
+        }else{
+
+            return listaDeBaños;
+        }
     }
 }

@@ -17,7 +17,7 @@ public class Indicador {
     }
     public String getLugar() { return lugar; }
 
-    public Indicador (String indicador, String locacion){
+    public Indicador (String locacion, String indicador){
         this.setdescr(indicador);
         this.setLugar(locacion);
     }
