@@ -36,6 +36,10 @@
             android:name=".activity.PantallaAdicional"
             android:label="@string/title_activity_panalla_adicional" >
         </activity>
+        <activity
+            android:name=".activity.itemlistrow"
+            android:label="@string/title_activity_itemlistrow" >
+        </activity>
     </application>
 
 </manifest>

@@ -16,9 +16,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageView"
+            android:background="@drawable/logo_irsa_letras"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/logo_irsa_letras" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,10 +39,9 @@
             android:id="@+id/txtUsuario"
             android:textColor="#ff000000"
             android:textSize="30dp"
+            android:text="prueba"
             android:layout_below="@+id/lblUsuario"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="prueba" />
+            android:layout_centerHorizontal="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,10 +61,10 @@
             android:id="@+id/txtContrasena"
             android:textColor="#ff000000"
             android:textSize="30dp"
+            android:text="prueba"
             android:layout_below="@+id/lblContrasena"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:text="prueba" />
+            android:layout_alignLeft="@+id/txtUsuario"
+            android:layout_alignStart="@+id/txtUsuario" />
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -84,8 +84,7 @@
                 android:textSize="25dp"
                 android:textColor="#ff000000"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_centerHorizontal="true" />
 
             <Button
                 android:layout_width="wrap_content"

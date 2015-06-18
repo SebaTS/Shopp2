@@ -14,10 +14,12 @@ public class EvaluacionesRepository {
     public EvaluacionesRepository(){
         listaDeEvaluaciones = new ArrayList<String>();
 
+        Evaluacion noevaluado = new Evaluacion("No evaluado");
         Evaluacion malo = new Evaluacion("Malo");
         Evaluacion medio = new Evaluacion("Medio");
         Evaluacion bueno = new Evaluacion("Bueno");
 
+        listaDeEvaluaciones.add(noevaluado.getestado());
         listaDeEvaluaciones.add(malo.getestado());
         listaDeEvaluaciones.add(medio.getestado());
         listaDeEvaluaciones.add(bueno.getestado());
