@@ -121,5 +121,9 @@ public class PantallaPlanilla extends ActionBarActivity {
 
     }
 
+    public void accederConfiguraciones (View view){
+        Intent intent2 = new Intent (getApplicationContext(), PantallaConfiguraciones.class);
+        startActivity(intent2);
+    }
 
 }
