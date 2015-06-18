@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -44,7 +45,7 @@ public class PantallaAdicional extends ActionBarActivity {
     }
 
 
-    public void AgregarFotoClick() {
+    public void AgregarFotoClick(View view) {
         String file = ruta_fotos + nombrefoto + ".jpg";
         File mi_foto = new File(file);
         try {
