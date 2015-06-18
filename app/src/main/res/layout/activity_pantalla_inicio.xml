@@ -94,7 +94,7 @@
                 android:id="@+id/btnConectar"
                 android:textSize="30dp"
                 android:onClick="Conectar"
-                android:background="#ffc8c8c8"
+                android:background="@drawable/btnnopres"
                 android:layout_below="@+id/chkSesion"
                 android:layout_centerHorizontal="true" />
 

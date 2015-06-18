@@ -34,55 +34,62 @@ public class PantallaTomas extends ActionBarActivity {
         Bundle extras = getIntent().getExtras();
         newString = extras.getString("Prueba");
         tvwlugar.setText(newString);
-        //Intent intent = new Intent();
-        // intent.getIntent().getExtras().toString()
+
+        // Se debe hacer un COUNT de los indicadores.
+        int countIndicadores = 10;
+        Spinner[] spnIndicador = new Spinner[countIndicadores];
+        final Button[] btnIndicador = new Button[countIndicadores];
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayout5656);
 
         // Se agregan dinámicamente los controles de la pantalla
-            Spinner[] spnIndicador = new Spinner[10];
-            final Button[] btnIndicador = new Button[10];
-            LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout5656);
-/*
-NOTAS: HAY QUE HACER UN COUNT DE LOS INDICADORES TRAIDOS POR EL QUERY. DEBERÍAMOS GUARDARLOS EN UN ARRAY.
-EL RESULTADO DE LA CUENTA HAY QUE USARLO COMO PARÁMETRO EN EL FOR, PARA INDICAR HASTA DÓNDE HACER EL LOOP.
-POR OTRO LADO, HAY QUE SEGUIR SETEANDO LAS PROPIEDADES DE LOS ELEMENTOS DEL FOR (POSICIÓN, GRAVEDAD, TAMAÑO, ETC.)
- */
-        // Se agregan dinámicamente los controles de la pantalla
-            for(int i=0; i<10; i++) {
-            // Creo un layout horizontal.
-                LinearLayout layoutHorizontal = new LinearLayout(this);
-                layoutHorizontal.setOrientation(LinearLayout.HORIZONTAL);
-            // Creo un text view y le defino sus parámetros
-                btnIndicador[i] = new Button(this);
-                btnIndicador[i].setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                btnIndicador[i].setTextSize(20);
-                btnIndicador[i].setGravity(2);
-                btnIndicador[i].setText("prueba" + i);
-                // Le otorgo a la variable texto el texto del botón.
-                indicador = btnIndicador[i].getText().toString();
-                btnIndicador[i].setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        Intent intent = new Intent (getApplicationContext(), PantallaAdicional.class);
-                        intent.putExtra("Locacion", newString);
-                        intent.putExtra("Indicador", indicador);
-                        startActivity(intent);
-                    }
+        for (int i = 0; i < countIndicadores; i++) {
+            LinearLayout layoutHorizontal = createLayoutHorizontal();
+            btnIndicador[i] = this.createIndicador("prueba" + i);
+            spnIndicador[i] = this.createSpinner();
 
-                });
-            // Creo un spinner y le defino sus parámetros
-                spnIndicador[i] = new Spinner(this);
-                spnIndicador[i].setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                this.evaluacion = new EvaluacionesRepository();
-                adaptadorSpinner = null;
-                adaptadorSpinner = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, evaluacion.listaDeEvaluaciones);
-                spnIndicador[i].setAdapter(adaptadorSpinner);
-                spnIndicador[i].setGravity(3);
-            // Agrego el text view y el spinner al layout horizontal
-                layoutHorizontal.addView(btnIndicador[i]);
-                layoutHorizontal.addView(spnIndicador[i]);
-                layoutHorizontal.setWeightSum(1);
-            // Agrego el layout horizontal al layout vertical del xml
-                linearLayout.addView(layoutHorizontal);
+            layoutHorizontal.addView(btnIndicador[i]);
+            layoutHorizontal.addView(spnIndicador[i]);
+
+            linearLayout.addView(layoutHorizontal);
+        }
+    }
+
+    private Spinner createSpinner() {
+        Spinner spn = new Spinner(this);
+        spn.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        this.evaluacion = new EvaluacionesRepository();
+        adaptadorSpinner = null;
+        adaptadorSpinner = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, evaluacion.listaDeEvaluaciones);
+        spn.setAdapter(adaptadorSpinner);
+        spn.setGravity(3);
+        return spn;
+    }
+
+    private LinearLayout createLayoutHorizontal() {
+        LinearLayout layoutHorizontal = new LinearLayout(this);
+        layoutHorizontal.setOrientation(LinearLayout.HORIZONTAL);
+        layoutHorizontal.setWeightSum(1);
+        return layoutHorizontal;
+    }
+
+    private Button createIndicador(String btnText) {
+        Button btn = new Button(this);
+        btn.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        btn.setTextSize(20);
+        btn.setGravity(2);
+        btn.setText(btnText);
+        indicador = btn.getText().toString();
+        btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PantallaAdicional.class);
+                intent.putExtra("Locacion", newString);
+                intent.putExtra("Indicador", indicador);
+                startActivity(intent);
             }
+
+        });
+
+        return btn;
     }
 }
 

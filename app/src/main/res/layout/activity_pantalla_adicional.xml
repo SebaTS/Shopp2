@@ -54,17 +54,21 @@
                     android:textSize="25dp" />
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="117dp"
                     android:layout_height="wrap_content"
                     android:text="Foto"
                     android:id="@+id/btnFoto"
-                    android:onClick="AgregarFotoClick" />
+                    android:onClick="AgregarFotoClick"
+                    android:background="@drawable/btnnopres"
+                    android:textSize="25dp" />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Video"
-                    android:id="@+id/btnVideo" />
+                    android:id="@+id/btnVideo"
+                    android:textSize="25dp"
+                    android:background="@drawable/btnnopres" />
             </LinearLayout>
 
             <TextView
@@ -76,7 +80,7 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/editText" />
 
         </LinearLayout>
