@@ -45,6 +45,7 @@ public class PantallaPlanilla extends ActionBarActivity {
     String newString;
     private int filtroSeleccionado;
     private TextView tvwUsuario;
+    private String user;
 
     // Inicio del Activity
     @Override
@@ -106,6 +107,8 @@ public class PantallaPlanilla extends ActionBarActivity {
         Intent intent = new Intent (getApplicationContext(), PantallaTomas.class);
         String prueba = locaciones.obtenerLocaciones(filtroSeleccionado).get(locacionSeleccionada);
         intent.putExtra("Prueba", prueba);
+        String user = tvwUsuario.getText().toString();
+        intent.putExtra("Usuario", user);
         startActivity(intent);
     }
 

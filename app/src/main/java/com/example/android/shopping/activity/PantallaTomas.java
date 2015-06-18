@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.android.shopping.R;
 import com.example.android.shopping.db.EvaluacionesRepository;
@@ -23,11 +24,16 @@ public class PantallaTomas extends ActionBarActivity {
     private ArrayAdapter<String> adaptadorSpinner;
     private EvaluacionesRepository evaluacion;
     public String indicador = new String();
-
+    private TextView tvwUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_tomas);
+
+        this.tvwUsuario = (TextView) findViewById(R.id.tvwusuario);
+        Bundle extras1 = getIntent().getExtras();
+        newString = extras1.getString("Usuario");
+        tvwUsuario.setText(newString);
 
         // El título se setea con el nombre de la locación elegida.
         tvwlugar = (EditText) findViewById(R.id.txtLocacion);
@@ -91,6 +97,12 @@ public class PantallaTomas extends ActionBarActivity {
 
         return btn;
     }
+
+    public void accederConfiguraciones (View view){
+        Intent intent2 = new Intent (getApplicationContext(), PantallaConfiguraciones.class);
+        startActivity(intent2);
+    }
+
 }
 
 
