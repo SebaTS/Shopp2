@@ -15,12 +15,20 @@ public class FiltrosRepository {
 
     // Llena el array con los filtros.
     public FiltrosRepository() {
+        Filtro malls = new Filtro("Malls");
+        Filtro estacionamientos = new Filtro("Estacionamientos");
         Filtro baños = new Filtro("Baños");
-        Filtro mall = new Filtro("Mall");
+        Filtro ascensores = new Filtro("Ascensores");
+        Filtro escalerasm = new Filtro("Escaleras Mecánicas");
+
         listaDeFiltros = new ArrayList<String>();
         listaDeFiltros.add("Todos");
+        listaDeFiltros.add(malls.getfiltro());
+        listaDeFiltros.add(estacionamientos.getfiltro());
         listaDeFiltros.add(baños.getfiltro());
-        listaDeFiltros.add(mall.getfiltro());
+        listaDeFiltros.add(ascensores.getfiltro());
+        listaDeFiltros.add(escalerasm.getfiltro());
+
 
 //        public FiltrosRepository(int filtroselec)
 //       ("SELECT Descripcion FROM Filtros WHERE Categoria = " + filtroselec);

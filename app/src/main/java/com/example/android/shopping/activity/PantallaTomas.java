@@ -1,21 +1,18 @@
 package com.example.android.shopping.activity;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.TableRow;
-import android.widget.TextView;
 
 import com.example.android.shopping.R;
 import com.example.android.shopping.db.EvaluacionesRepository;
-import com.example.android.shopping.db.IndicadoresRepository;
 
 
 public class PantallaTomas extends ActionBarActivity {
@@ -25,6 +22,7 @@ public class PantallaTomas extends ActionBarActivity {
     String newString;
     private ArrayAdapter<String> adaptadorSpinner;
     private EvaluacionesRepository evaluacion;
+    public String indicador = new String();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,25 +38,36 @@ public class PantallaTomas extends ActionBarActivity {
         // intent.getIntent().getExtras().toString()
 
         // Se agregan dinámicamente los controles de la pantalla
-            LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout5656);
             Spinner[] spnIndicador = new Spinner[10];
-            TextView[] tvwIndicador = new TextView[10];
-            TableRow[] tableRows = new TableRow[10];
+            final Button[] btnIndicador = new Button[10];
+            LinearLayout linearLayout = (LinearLayout)findViewById(R.id.linearLayout5656);
 /*
 NOTAS: HAY QUE HACER UN COUNT DE LOS INDICADORES TRAIDOS POR EL QUERY. DEBERÍAMOS GUARDARLOS EN UN ARRAY.
 EL RESULTADO DE LA CUENTA HAY QUE USARLO COMO PARÁMETRO EN EL FOR, PARA INDICAR HASTA DÓNDE HACER EL LOOP.
 POR OTRO LADO, HAY QUE SEGUIR SETEANDO LAS PROPIEDADES DE LOS ELEMENTOS DEL FOR (POSICIÓN, GRAVEDAD, TAMAÑO, ETC.)
  */
+        // Se agregan dinámicamente los controles de la pantalla
             for(int i=0; i<10; i++) {
             // Creo un layout horizontal.
                 LinearLayout layoutHorizontal = new LinearLayout(this);
                 layoutHorizontal.setOrientation(LinearLayout.HORIZONTAL);
             // Creo un text view y le defino sus parámetros
-                tvwIndicador[i] = new TextView(this);
-                tvwIndicador[i].setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                tvwIndicador[i].setTextSize(20);
-                tvwIndicador[i].setGravity(2);
-                tvwIndicador[i].setText("prueba"+i);
+                btnIndicador[i] = new Button(this);
+                btnIndicador[i].setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                btnIndicador[i].setTextSize(20);
+                btnIndicador[i].setGravity(2);
+                btnIndicador[i].setText("prueba" + i);
+                // Le otorgo a la variable texto el texto del botón.
+                indicador = btnIndicador[i].getText().toString();
+                btnIndicador[i].setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent (getApplicationContext(), PantallaInicio.class);
+                        intent.putExtra("Locacion", newString);
+                        intent.putExtra("Indicador", indicador);
+                        startActivity(intent);
+                    }
+
+                });
             // Creo un spinner y le defino sus parámetros
                 spnIndicador[i] = new Spinner(this);
                 spnIndicador[i].setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -68,11 +77,12 @@ POR OTRO LADO, HAY QUE SEGUIR SETEANDO LAS PROPIEDADES DE LOS ELEMENTOS DEL FOR 
                 spnIndicador[i].setAdapter(adaptadorSpinner);
                 spnIndicador[i].setGravity(3);
             // Agrego el text view y el spinner al layout horizontal
-                layoutHorizontal.addView(tvwIndicador[i]);
+                layoutHorizontal.addView(btnIndicador[i]);
                 layoutHorizontal.addView(spnIndicador[i]);
+                layoutHorizontal.setWeightSum(1);
             // Agrego el layout horizontal al layout vertical del xml
                 linearLayout.addView(layoutHorizontal);
-                }
+            }
     }
 }
 
