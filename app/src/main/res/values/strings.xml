@@ -7,5 +7,6 @@
     <string name="title_activity_pantalla_asignados">PantallaAsignados</string>
     <string name="title_activity_pantalla_asignados_detalle">PantallaAsignadosDetalle</string>
     <string name="title_activity_pantalla_configuraciones">PantallaConfiguraciones</string>
+    <string name="title_activity_panalla_adicional">PanallaAdicional</string>
 
 </resources>

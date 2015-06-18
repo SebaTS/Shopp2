@@ -61,7 +61,7 @@ POR OTRO LADO, HAY QUE SEGUIR SETEANDO LAS PROPIEDADES DE LOS ELEMENTOS DEL FOR 
                 indicador = btnIndicador[i].getText().toString();
                 btnIndicador[i].setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        Intent intent = new Intent (getApplicationContext(), PantallaInicio.class);
+                        Intent intent = new Intent (getApplicationContext(), PantallaAdicional.class);
                         intent.putExtra("Locacion", newString);
                         intent.putExtra("Indicador", indicador);
                         startActivity(intent);
