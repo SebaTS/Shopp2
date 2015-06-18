@@ -87,32 +87,3 @@ POR OTRO LADO, HAY QUE SEGUIR SETEANDO LAS PROPIEDADES DE LOS ELEMENTOS DEL FOR 
 }
 
 
-
-
-
-
-
-
-    /*
-    private final String ruta_fotos = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/misfotos/";
-    private File file = new File(ruta_fotos);
-    private Editable nombrefoto;
-
-    public void AgregarFotoClick (){
-            String file = ruta_fotos + nombrefoto + ".jpg";
-            File mi_foto = new File(file);
-            try {
-                mi_foto.createNewFile();
-            } catch (IOException ex) {
-                Log.e("ERROR ", "Error:" + ex);
-            }
-
-            Uri uri = Uri.fromFile(mi_foto);
-            //Abre la camara para tomar la foto
-            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            //Guarda imagen
-            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
-            //Retorna a la actividad
-            startActivityForResult(cameraIntent, 0);
-    }*/
-

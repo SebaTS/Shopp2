@@ -44,7 +44,7 @@ public class PantallaAdicional extends ActionBarActivity {
         tvwindica.setText(indicadorString);
     }
 
-
+    // Activa la cámara para tomar fotos.
     public void AgregarFotoClick(View view) {
         String file = ruta_fotos + nombrefoto + ".jpg";
         File mi_foto = new File(file);

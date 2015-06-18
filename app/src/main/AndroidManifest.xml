@@ -32,6 +32,10 @@
             android:name=".activity.PantallaConfiguraciones"
             android:label="@string/title_activity_pantalla_configuraciones" >
         </activity>
+        <activity
+            android:name=".activity.PantallaAdicional"
+            android:label="@string/title_activity_panalla_adicional" >
+        </activity>
     </application>
 
 </manifest>
