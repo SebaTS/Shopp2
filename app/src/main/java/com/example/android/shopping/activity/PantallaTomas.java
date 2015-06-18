@@ -100,10 +100,11 @@ public class PantallaTomas extends ActionBarActivity {
         btn.setTextSize(20);
         btn.setGravity(2);
         btn.setText(btnText);
-        indicador = btn.getText().toString();
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PantallaAdicional.class);
+//                indicador = btn.getText().toString();
+                indicador = ((Button) v).getText().toString();
                 intent.putExtra("Locacion", newString);
                 intent.putExtra("Indicador", indicador);
                 String user = tvwUsuario.getText().toString();

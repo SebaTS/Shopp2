@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -45,7 +46,7 @@ public class PantallaPlanilla extends ActionBarActivity {
     String newString;
     private int filtroSeleccionado;
     private TextView tvwUsuario;
-    private String user;
+    public TextView bienvenida;
 
     // Inicio del Activity
     @Override
@@ -53,23 +54,20 @@ public class PantallaPlanilla extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_planilla);
         this.boton = (Button) findViewById(R.id.btnIniciar);
-        this.spinner = (Spinner) findViewById(R.id.spnFiltro);
-        this.listview = (ListView) findViewById(R.id.lswLocaciones);
         this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);
         this.tvwlugar = (EditText) findViewById(R.id.txtLocacion);
-        // Deshabilita el spinner y el listview.
-        spinner.setEnabled(false);
-        listview.setEnabled(false);
+
         Bundle extras = getIntent().getExtras();
         newString = extras.getString("Usuario");
         tvwUsuario.setText(newString);
 
-        // Establece el adaptador para los filtros.
-        this.filtros = new FiltrosRepository();
-        adaptadorFiltros = null;
-        adaptadorFiltros = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, filtros.listaDeFiltros);
-        spinner.setAdapter(adaptadorFiltros);
+        LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout6);
+        bienvenida = new TextView(this);
+        bienvenida.setText("Pruebaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        layout.addView(bienvenida);
+    }
 
+    private void selecionarItem() {
         // Modifica la lista al seleccionar un filtro.
         this.locaciones = new LocacionesRepository();
         spinner.setOnItemSelectedListener(
@@ -84,14 +82,21 @@ public class PantallaPlanilla extends ActionBarActivity {
                     public void onNothingSelected(AdapterView<?> parent) {
                     }
                 });
-
+        // Avanza a la siguiente pantalla al clickear el list view
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 seleccionarLocacion(position);
             }
         });
+    }
 
+    // Establece el adaptador para los filtros.
+    private void createFiltrosAdapter() {
+        this.filtros = new FiltrosRepository();
+        adaptadorFiltros = null;
+        adaptadorFiltros = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, filtros.listaDeFiltros);
+        spinner.setAdapter(adaptadorFiltros);
     }
 
     // Establece el adaptador para las locaciones.
@@ -116,8 +121,14 @@ public class PantallaPlanilla extends ActionBarActivity {
     public void IniciarTerminar (View view){
         if (boton.getText().toString().equals("Iniciar Recorrida")){
             boton.setText("Terminar Recorrida");
-            spinner.setEnabled(true);
-            listview.setEnabled(true);
+            bienvenida.setVisibility(EditText.GONE);
+            this.spinner = new Spinner(this);
+            this.listview = new ListView(this);
+            createFiltrosAdapter();
+            selecionarItem();
+            LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout6);
+            layout.addView(spinner);
+            layout.addView(listview);
         } else {
 
         }
