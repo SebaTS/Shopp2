@@ -1,6 +1,7 @@
 package com.example.android.shopping.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -46,6 +47,7 @@ public class PantallaPlanilla extends ActionBarActivity {
     String newString;
     private int filtroSeleccionado;
     private TextView tvwUsuario;
+    public TextView saludo;
     public TextView bienvenida;
 
     // Inicio del Activity
@@ -62,8 +64,15 @@ public class PantallaPlanilla extends ActionBarActivity {
         tvwUsuario.setText(newString);
 
         LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout6);
+        saludo = new TextView(this);
         bienvenida = new TextView(this);
-        bienvenida.setText("Pruebaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        saludo.setTextSize(30);
+        bienvenida.setTextSize(20);
+        saludo.setText("Bienvenido a PIOLON");
+        saludo.setTextColor(Color.parseColor("#ff0006ff"));
+        bienvenida.setText("Este sistema permite registrar su recorrida de una manera mucho más dinámica.\n"+"\n"+"Si tiene alguna duda puede consultar el manual on-line en la dirección\n"+"\n"+"          manualgroso.com\n"+"\n"+"Para contactar al soporte técnico comuniquese al\n"+"\n"+"          (4892567891)/4");
+        bienvenida.setTextColor(Color.parseColor("#ff0006ff"));
+        layout.addView(saludo);
         layout.addView(bienvenida);
     }
 
@@ -122,6 +131,7 @@ public class PantallaPlanilla extends ActionBarActivity {
         if (boton.getText().toString().equals("Iniciar Recorrida")){
             boton.setText("Terminar Recorrida");
             bienvenida.setVisibility(EditText.GONE);
+            saludo.setVisibility(EditText.GONE);
             this.spinner = new Spinner(this);
             this.listview = new ListView(this);
             createFiltrosAdapter();

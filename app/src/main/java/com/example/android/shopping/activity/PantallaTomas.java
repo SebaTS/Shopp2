@@ -91,6 +91,7 @@ public class PantallaTomas extends ActionBarActivity {
         LinearLayout layoutHorizontal = new LinearLayout(this);
         layoutHorizontal.setOrientation(LinearLayout.HORIZONTAL);
         layoutHorizontal.setWeightSum(1);
+//        layoutHorizontal.setDividerDrawable();
         return layoutHorizontal;
     }
 
