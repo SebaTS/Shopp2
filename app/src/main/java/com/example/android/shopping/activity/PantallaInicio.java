@@ -36,7 +36,7 @@ public class PantallaInicio extends ActionBarActivity {
 
     // Verifica la existencia del usuario Y la contraseña.
     public boolean Verificar() {
-        if (this.usuariosRepo.existeUsuario(userEditText.getText().toString(), passEditText.getText().toString())) {
+        if (this.usuariosRepo.existeUsuario(getApplicationContext(), userEditText.getText().toString(), passEditText.getText().toString())) {
             return true;
         } else {
             msg = Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrectas, por favor inténtelo nuevamente.", Toast.LENGTH_SHORT);

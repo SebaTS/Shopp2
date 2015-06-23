@@ -1,5 +1,8 @@
 package com.example.android.shopping.db;
 
+import android.content.Context;
+import android.database.Cursor;
+
 import com.example.android.shopping.Entidades.Usuario;
 
 import java.util.ArrayList;
@@ -9,6 +12,7 @@ import java.util.ArrayList;
  */
 public class UsuariosRepository {
 
+    private ShoppingDBOpenHelper shoppingDBOpenHelper;
     private ArrayList<Usuario> listaDeUsuarios;
     private boolean recordarUsuario;
 
@@ -20,15 +24,18 @@ public class UsuariosRepository {
 
     }
 
-    public boolean existeUsuario(String username, String pwd) {
-        for (Usuario u : listaDeUsuarios) {
-            if (u.getuser().equals(username) && u.getpass().equals(pwd)) {
-                return true;
-            }
-        }
+    public boolean existeUsuario(Context context, String username, String pwd) {
+//        for (Usuario u : listaDeUsuarios) {
+//            if (u.getuser().equals(username) && u.getpass().equals(pwd)) {
+//                return true;
+//            }
+//        }
 
-        return false;
+        shoppingDBOpenHelper = new ShoppingDBOpenHelper(context);
 
+        String selection = shoppingDBOpenHelper.TABLA_USUARIOS_COLUMNA_USUARIO + " = ?";
+
+        return shoppingDBOpenHelper.existeUsuario(selection, new String[] { username }, null);
     }
 
     public void setRecordarUsuario(boolean recordarUsuario) {
