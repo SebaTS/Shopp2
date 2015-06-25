@@ -110,7 +110,6 @@ public class PantallaPlanilla extends ActionBarActivity {
 
     // Establece el adaptador para las locaciones.
     private void actualizarListaDeLocaciones(int filtro) {
-
         adaptadorLocaciones = null;
         adaptadorLocaciones = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , locaciones.obtenerLocaciones(filtro));
         listview.setAdapter(adaptadorLocaciones);

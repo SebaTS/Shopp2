@@ -37,7 +37,8 @@ public class PantallaTomas extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_tomas);
 
-        this.tvwUsuario = (TextView) findViewById(R.id.tvwusuario);
+        // El usuario se setea con el usuario logueado.
+        this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);
         Bundle extras1 = getIntent().getExtras();
         newString = extras1.getString("Usuario");
         tvwUsuario.setText(newString);

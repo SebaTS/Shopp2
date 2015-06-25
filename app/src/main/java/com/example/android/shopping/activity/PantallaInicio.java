@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 import com.example.android.shopping.R;
 import com.example.android.shopping.Entidades.Usuario;
-import com.example.android.shopping.Syncro.DBConnection;
+//import com.example.android.shopping.Syncro.DBConnection;
 import com.example.android.shopping.db.UsuariosRepository;
-import net.sourceforge.jtds.jdbc.Driver;
+
 
 public class PantallaInicio extends ActionBarActivity {
 
@@ -33,7 +33,6 @@ public class PantallaInicio extends ActionBarActivity {
         this.passEditText = (EditText) this.findViewById(R.id.txtContrasena);
         this.sesion = (CheckBox) this.findViewById(R.id.chkSesion);
         this.usuariosRepo = new UsuariosRepository();
-        Connection conn = DBConnection.getInstance().getConnection();
     }
 
     // Verifica la existencia del usuario Y la contraseña.
@@ -56,7 +55,7 @@ public class PantallaInicio extends ActionBarActivity {
             if (sesion.isChecked()) {
 
             }
-            Intent intent = new Intent(getApplicationContext(), PantallaPlanilla.class);
+            Intent intent = new Intent(getApplicationContext(), PantallaEdificios.class);
             String user = userEditText.getText().toString();
             intent.putExtra("Usuario", user);
             startActivity(intent);

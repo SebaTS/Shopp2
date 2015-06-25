@@ -5,7 +5,7 @@ package com.example.android.shopping.Entidades;
  */
 public class Locacion {
 
-    private String descripcion;
+private String descripcion;
 
     public void setDescripcion(String locacion) {
         this.descripcion = locacion;

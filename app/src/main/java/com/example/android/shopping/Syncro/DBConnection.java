@@ -1,5 +1,5 @@
 package com.example.android.shopping.Syncro;
-
+/*
 import android.util.Log;
 import android.widget.Toast;
 
@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import android.content.Context;
 
-
+/*
 
 public class DBConnection {
 
@@ -68,7 +68,7 @@ public class DBConnection {
         return connection;
     }
 
-    private Connection conectar(){
+  /*  private Connection conectar(){
         Connection conn = null;
         try{
             (new Driver()).getClass();
@@ -77,6 +77,5 @@ public class DBConnection {
             e.printStackTrace();
         }
         return conn;
-    }
+    }*/
 
-}
