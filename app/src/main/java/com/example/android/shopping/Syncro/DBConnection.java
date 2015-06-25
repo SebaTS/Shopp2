@@ -1,22 +1,59 @@
 package com.example.android.shopping.Syncro;
 
+import android.util.Log;
+import android.widget.Toast;
+
+import com.mysql.jdbc.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import android.content.Context;
 
-/**
- * Created by android on 25/06/2015.
- */
+
+
 public class DBConnection {
 
-    private static DBConnection instance = null;
-    private static final String URL="jdbc:mysql://bossio.dlinkddns.com:3302/shopping";
-    private static final String USER="root";
-    private static final String PASS="puerta18";
-    private static Connection connection = null;
 
-    private DBConnection(){}
+    Connection conn;
+    String resultadoConexion;
 
+    @Override
+    protected String doInBackground(String... urls) {
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://1111111/xxxxxxxxxxxxxxxxxxxxxx");
+            System.out.println("CONEXION AsyncTask:   " + conn);
+            Log.i("Exito", "Conexion a la base de datos realizada con exito");
+            resultadoConexion = "Conectado";
+        } catch (Exception e) {
+            resultadoConexion = "Error al conectar";
+            Log.i("ErrorBBDD", "Error: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return resultadoConexion;
+    }
+
+    public Connection getConn() {
+        return conn;
+    }
+
+    public void setConn(Connection conn) {
+        this.conn = conn;
+    }
+}
+
+
+
+
+
+
+    /*
     public static DBConnection getInstance(){
         if (instance == null){
             instance = new DBConnection();
@@ -34,7 +71,7 @@ public class DBConnection {
     private Connection conectar(){
         Connection conn = null;
         try{
-            (new net.sourceforge.jtds.jdbc.Driver()).getClass();
+            (new Driver()).getClass();
             conn = DriverManager.getConnection(URL,USER,PASS);
         }   catch (SQLException e){
             e.printStackTrace();

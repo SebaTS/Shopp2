@@ -22,4 +22,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.1.0'
+    compile 'jtds:jtds:1.2'
+    compile 'net.sourceforge.jtds:jtds:1.3.1'
+    compile 'mysql:mysql-connector-java:5.1.35'
 }
