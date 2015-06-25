@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 import com.example.android.shopping.R;
 import com.example.android.shopping.Entidades.Usuario;
+import com.example.android.shopping.Syncro.DBConnection;
 import com.example.android.shopping.db.UsuariosRepository;
+import net.sourceforge.jtds.jdbc.Driver;
 
 public class PantallaInicio extends ActionBarActivity {
 
@@ -23,7 +25,6 @@ public class PantallaInicio extends ActionBarActivity {
     Toast msg;
     private UsuariosRepository usuariosRepo;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class PantallaInicio extends ActionBarActivity {
         this.passEditText = (EditText) this.findViewById(R.id.txtContrasena);
         this.sesion = (CheckBox) this.findViewById(R.id.chkSesion);
         this.usuariosRepo = new UsuariosRepository();
+        Connection conn = DBConnection.getInstance().getConnection();
     }
 
     // Verifica la existencia del usuario Y la contraseña.

@@ -25,17 +25,15 @@ public class UsuariosRepository {
     }
 
     public boolean existeUsuario(Context context, String username, String pwd) {
-//        for (Usuario u : listaDeUsuarios) {
-//            if (u.getuser().equals(username) && u.getpass().equals(pwd)) {
-//                return true;
-//            }
-//        }
-
-        shoppingDBOpenHelper = new ShoppingDBOpenHelper(context);
-
-        String selection = shoppingDBOpenHelper.TABLA_USUARIOS_COLUMNA_USUARIO + " = ?";
-
-        return shoppingDBOpenHelper.existeUsuario(selection, new String[] { username }, null);
+        for (Usuario u : listaDeUsuarios) {
+            if (u.getuser().equals(username) && u.getpass().equals(pwd)) {
+                return true;
+            }
+        }
+        return false;
+//        shoppingDBOpenHelper = new ShoppingDBOpenHelper(context);
+//        String selection = shoppingDBOpenHelper.TABLA_USUARIOS_COLUMNA_USUARIO + " = ?";
+//        return shoppingDBOpenHelper.existeUsuario(selection, new String[] { username }, null);
     }
 
     public void setRecordarUsuario(boolean recordarUsuario) {
