@@ -70,6 +70,42 @@
     </LinearLayout>
 
     <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adjuntar"
+            android:id="@+id/btnAdjuntar"
+            android:background="#00ffffff"
+            android:textSize="30dp" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Foto"
+            android:id="@+id/btnFoto"
+            android:onClick="AgregarFotoClick"
+            android:background="@drawable/btnnopres"
+            android:textSize="25dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Video"
+            android:id="@+id/btnVideo"
+            android:textSize="25dp"
+            android:background="@drawable/btnnopres" />
+    </LinearLayout>
+
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -113,41 +149,5 @@
         android:layout_centerHorizontal="true"
         android:textSize="30dp"
         android:background="@drawable/btnnopres" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_below="@+id/linearLayout2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Adjuntar"
-            android:id="@+id/btnAdjuntar"
-            android:background="#00ffffff"
-            android:textSize="30dp" />
-
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:text="Foto"
-            android:id="@+id/btnFoto"
-            android:onClick="AgregarFotoClick"
-            android:background="@drawable/btnnopres"
-            android:textSize="25dp" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Video"
-            android:id="@+id/btnVideo"
-            android:textSize="25dp"
-            android:background="@drawable/btnnopres" />
-    </LinearLayout>
 
 </RelativeLayout>

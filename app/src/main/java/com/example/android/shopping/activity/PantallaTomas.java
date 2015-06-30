@@ -122,6 +122,12 @@ public class PantallaTomas extends ActionBarActivity {
         startActivity(intent2);
     }
 
+
+
+    public void btnGuardarClic (View view){
+        Intent intentplanilla = new Intent (getApplicationContext(), PantallaPlanilla.class);
+        startActivity(intentplanilla);
+    }
 }
 
 
