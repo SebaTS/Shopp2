@@ -7,21 +7,42 @@ import com.example.android.shopping.Entidades.Usuario;
 
 import java.util.ArrayList;
 
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  * Created by android on 04/06/2015.
  */
 public class UsuariosRepository {
 
     private ShoppingDBOpenHelper shoppingDBOpenHelper;
-    private ArrayList<Usuario> listaDeUsuarios;
+    public ArrayList<Usuario> listaDeUsuarios;
     private boolean recordarUsuario;
-
+/*
     public UsuariosRepository() {
 
         Usuario user = new Usuario("prueba", "prueba");
         listaDeUsuarios = new ArrayList<Usuario>();
         listaDeUsuarios.add(user);
 
+    }
+*/
+    public UsuariosRepository(ResultSet resultSet) {
+        try {
+            listaDeUsuarios = new ArrayList<Usuario>();
+            listaDeUsuarios = null;
+            while (resultSet.next()) {
+                String usuario = resultSet.getString("Usuario");
+                String contraseña = resultSet.getString("Contraseña");
+                Usuario u = new Usuario(usuario, contraseña);
+                listaDeUsuarios.add(u);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean existeUsuario(Context context, String username, String pwd) {
@@ -31,9 +52,6 @@ public class UsuariosRepository {
             }
         }
         return false;
-//        shoppingDBOpenHelper = new ShoppingDBOpenHelper(context);
-//        String selection = shoppingDBOpenHelper.TABLA_USUARIOS_COLUMNA_USUARIO + " = ?";
-//        return shoppingDBOpenHelper.existeUsuario(selection, new String[] { username }, null);
     }
 
     public void setRecordarUsuario(boolean recordarUsuario) {
