@@ -31,9 +31,10 @@ public class UsuariosRepository {
     }
 */
     public UsuariosRepository(ResultSet resultSet) {
+
+        listaDeUsuarios = new ArrayList<Usuario>();
+        listaDeUsuarios = null;
         try {
-            listaDeUsuarios = new ArrayList<Usuario>();
-            listaDeUsuarios = null;
             while (resultSet.next()) {
                 String usuario = resultSet.getString("Usuario");
                 String contraseña = resultSet.getString("Contraseña");

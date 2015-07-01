@@ -4,6 +4,12 @@ import com.example.android.shopping.Entidades.Edificio;
 
 import java.util.ArrayList;
 
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  * Created by android on 25/06/2015.
  */
@@ -12,11 +18,26 @@ public class EdificiosRepository {
     public ArrayList<String> listaDeEdificios;
 
     // Llena al array con los edificios.
-    public EdificiosRepository() {
+    public EdificiosRepository(ResultSet resultSet) {
 
         listaDeEdificios = new ArrayList<String>();
+        listaDeEdificios = null;
+        try {
+            while (resultSet.next()) {
+                String descr = resultSet.getString("Descripcion");
+                Edificio e = new Edificio(descr);
+                listaDeEdificios.add(e.getedificio());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
-        Edificio abasto = new Edificio("Abasto");
+
+
+
+/*        Edificio abasto = new Edificio("Abasto");
         Edificio altoavellaneda = new Edificio("Alto Avellaneda");
         Edificio altopalermo = new Edificio("Alto Palermo");
         Edificio bsasdesign = new Edificio("Bs As Design");
@@ -26,15 +47,15 @@ public class EdificiosRepository {
         Edificio alcorta = new Edificio("Alcorta Shopping");
         Edificio patiobullrich = new Edificio("Patio Bullrich");
 
-        listaDeEdificios.add(abasto.getedificio());
-        listaDeEdificios.add(altoavellaneda.getedificio());
-        listaDeEdificios.add(altopalermo.getedificio());
-        listaDeEdificios.add(bsasdesign.getedificio());
-        listaDeEdificios.add(cordoba.getedificio());
-        listaDeEdificios.add(dot.getedificio());
-        listaDeEdificios.add(mzaplaza.getedificio());
-        listaDeEdificios.add(alcorta.getedificio());
-        listaDeEdificios.add(patiobullrich.getedificio());
+        listaDeEdificios.add(abasto);
+        listaDeEdificios.add(altoavellaneda);
+        listaDeEdificios.add(altopalermo);
+        listaDeEdificios.add(bsasdesign);
+        listaDeEdificios.add(cordoba);
+        listaDeEdificios.add(dot);
+        listaDeEdificios.add(mzaplaza);
+        listaDeEdificios.add(alcorta);
+        listaDeEdificios.add(patiobullrich);
     }
 
-}
+}*/
