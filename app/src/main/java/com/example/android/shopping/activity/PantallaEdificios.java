@@ -42,7 +42,18 @@ public class PantallaEdificios extends ActionBarActivity {
 
         this.db = new DBConnection();
         db.sqlPantallaEdificios.start();
+        AdaptadoresSpinners();
 
+        // El usuario se setea con el usuario logueado.
+        this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);
+        Bundle extras = getIntent().getExtras();
+        newString = extras.getString("Usuario");
+        tvwUsuario.setText(newString);
+    }
+/*--------------------------------------------------------------------------------------------------
+-------------------------------------- Private/helper methods --------------------------------------
+--------------------------------------------------------------------------------------------------*/
+    private void AdaptadoresSpinners() {
         this.spnedif = (Spinner) findViewById(R.id.spnEdificio);
         adaptadorEdificios = null;
         adaptadorEdificios = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, edificios.listaDeEdificios);
@@ -52,19 +63,13 @@ public class PantallaEdificios extends ActionBarActivity {
         adaptadorRecorridas = null;
         adaptadorRecorridas = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, recorridas.listaDeRecorridas);
         spnreco.setAdapter(adaptadorRecorridas);
-
-        // El usuario se setea con el usuario logueado.
-        this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);
-        Bundle extras = getIntent().getExtras();
-        newString = extras.getString("Usuario");
-        tvwUsuario.setText(newString);
     }
-
+//--------------------------------------------------------------------------------------------------
     public void accederConfiguraciones(View view) {
         Intent intent2 = new Intent(getApplicationContext(), PantallaConfiguraciones.class);
         startActivity(intent2);
     }
-
+//--------------------------------------------------------------------------------------------------
     public void siguiente(){
         Intent intentPlanilla = new Intent(getApplicationContext(), PantallaPlanilla.class);
         startActivity(intentPlanilla);

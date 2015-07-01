@@ -6,6 +6,12 @@ import com.example.android.shopping.Entidades.Filtro;
 
 import java.util.ArrayList;
 
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  * Created by Seba on 12/06/2015.
  */
@@ -14,8 +20,22 @@ public class FiltrosRepository {
     public ArrayList<String> listaDeFiltros;
 
     // Llena el array con los filtros.
-    public FiltrosRepository() {
-        Filtro malls = new Filtro("Malls");
+    public FiltrosRepository(ResultSet resultSet) {
+
+        listaDeFiltros = new ArrayList<String>();
+        listaDeFiltros = null;
+        try {
+            while (resultSet.next()) {
+                String descr = resultSet.getString("Descripcion");
+                Filtro f = new Filtro(descr);
+                listaDeFiltros.add(f.getfiltro());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+/*        Filtro malls = new Filtro("Malls");
         Filtro estacionamientos = new Filtro("Estacionamientos");
         Filtro baños = new Filtro("Baños");
         Filtro ascensores = new Filtro("Ascensores");
@@ -38,3 +58,4 @@ public class FiltrosRepository {
 //        }
     }
 }
+*/

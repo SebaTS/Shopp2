@@ -9,6 +9,8 @@ import com.example.android.shopping.Entidades.Recorrida;
 import com.example.android.shopping.Entidades.Usuario;
 import com.example.android.shopping.R;
 import com.example.android.shopping.db.EdificiosRepository;
+import com.example.android.shopping.db.FiltrosRepository;
+import com.example.android.shopping.db.LocacionesRepository;
 import com.example.android.shopping.db.RecorridasRepository;
 import com.example.android.shopping.db.UsuariosRepository;
 
@@ -79,6 +81,38 @@ public class DBConnection extends ActionBarActivity {
             } catch (SQLException e) {
                 e.printStackTrace();
 
+            }
+        }
+    };
+
+    public Thread sqlPantallaPlanilla = new Thread() {
+        public void run() {
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
+                String stsql = "SELECT Descripcion FROM Locaciones";
+                Statement st = conn.createStatement();
+                ResultSet result4 = st.executeQuery(stsql);
+                new LocacionesRepository(result4);
+                st.close();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
+                String stsql = "SELECT Descripcion FROM Filtros";
+                Statement st = conn.createStatement();
+                ResultSet result5 = st.executeQuery(stsql);
+                new FiltrosRepository(result5);
+                st.close();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
     };

@@ -30,6 +30,14 @@ import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.android.shopping.Syncro.DBConnection;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 import static android.R.layout.*;
 
 
@@ -47,14 +55,17 @@ public class PantallaPlanilla extends ActionBarActivity {
     String newString;
     private int filtroSeleccionado;
     private TextView tvwUsuario;
-    public TextView saludo;
-    public TextView bienvenida;
+    private DBConnection db;
 
     // Inicio del Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_planilla);
+
+        this.db = new DBConnection();
+        db.sqlPantallaPlanilla.start();
+
         this.boton = (Button) findViewById(R.id.btnIniciar);
         this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);
         this.tvwlugar = (EditText) findViewById(R.id.txtLocacion);
@@ -64,18 +75,17 @@ public class PantallaPlanilla extends ActionBarActivity {
         tvwUsuario.setText(newString);
 
         LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout6);
-        saludo = new TextView(this);
-        bienvenida = new TextView(this);
-        saludo.setTextSize(30);
-        bienvenida.setTextSize(20);
-        saludo.setText("Bienvenido a PIOLON");
-        saludo.setTextColor(Color.parseColor("#ff0006ff"));
-        bienvenida.setText("Este sistema permite registrar su recorrida de una manera mucho más dinámica.\n"+"\n"+"Si tiene alguna duda puede consultar el manual on-line en la dirección\n"+"\n"+"          manualgroso.com\n"+"\n"+"Para contactar al soporte técnico comuniquese al\n"+"\n"+"          (4892567891)/4");
-        bienvenida.setTextColor(Color.parseColor("#ff0006ff"));
-        layout.addView(saludo);
-        layout.addView(bienvenida);
-    }
 
+        this.spinner = new Spinner(this);
+        this.listview = new ListView(this);
+        createFiltrosAdapter();
+        selecionarItem();
+        layout.addView(spinner);
+        layout.addView(listview);
+    }
+/*--------------------------------------------------------------------------------------------------
+-------------------------------------- Private/helper methods --------------------------------------
+--------------------------------------------------------------------------------------------------*/
     private void selecionarItem() {
         // Modifica la lista al seleccionar un filtro.
         this.locaciones = new LocacionesRepository();
@@ -99,7 +109,7 @@ public class PantallaPlanilla extends ActionBarActivity {
             }
         });
     }
-
+//--------------------------------------------------------------------------------------------------
     // Establece el adaptador para los filtros.
     private void createFiltrosAdapter() {
         this.filtros = new FiltrosRepository();
@@ -107,14 +117,14 @@ public class PantallaPlanilla extends ActionBarActivity {
         adaptadorFiltros = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, filtros.listaDeFiltros);
         spinner.setAdapter(adaptadorFiltros);
     }
-
+//--------------------------------------------------------------------------------------------------
     // Establece el adaptador para las locaciones.
     private void actualizarListaDeLocaciones(int filtro) {
         adaptadorLocaciones = null;
         adaptadorLocaciones = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , locaciones.obtenerLocaciones(filtro));
         listview.setAdapter(adaptadorLocaciones);
     }
-
+//--------------------------------------------------------------------------------------------------
     // Abre PantallaTomas al seleccionar una locación.
     private void seleccionarLocacion (int locacionSeleccionada){
         Intent intent = new Intent (getApplicationContext(), PantallaTomas.class);
@@ -124,29 +134,17 @@ public class PantallaPlanilla extends ActionBarActivity {
         intent.putExtra("Usuario", user);
         startActivity(intent);
     }
-
+//--------------------------------------------------------------------------------------------------
     // Al presionar iniciar, el spinner y el listview son habilitados y el botón cambia su texto a "Terminar Recorrida".
     public void IniciarTerminar (View view){
         if (boton.getText().toString().equals("Iniciar Recorrida")){
             boton.setText("Terminar Recorrida");
-            bienvenida.setVisibility(EditText.GONE);
-            saludo.setVisibility(EditText.GONE);
-            this.spinner = new Spinner(this);
-            this.listview = new ListView(this);
-            createFiltrosAdapter();
-            selecionarItem();
-            LinearLayout layout = (LinearLayout)findViewById(R.id.linearLayout6);
-            layout.addView(spinner);
-            layout.addView(listview);
         } else {
-
         }
-
     }
-
+//--------------------------------------------------------------------------------------------------
     public void accederConfiguraciones (View view){
         Intent intent2 = new Intent (getApplicationContext(), PantallaConfiguraciones.class);
         startActivity(intent2);
     }
-
 }

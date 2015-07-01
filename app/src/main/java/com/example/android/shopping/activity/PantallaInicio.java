@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.example.android.shopping.R;
 import com.example.android.shopping.Entidades.Usuario;
-//import com.example.android.shopping.Syncro.DBConnection;
 import com.example.android.shopping.db.UsuariosRepository;
 import com.example.android.shopping.Syncro.DBConnection;
 import java.sql.Connection;
@@ -71,6 +70,9 @@ public class PantallaInicio extends ActionBarActivity {
         }
     };
 */
+/*--------------------------------------------------------------------------------------------------
+-------------------------------------- Private/helper methods --------------------------------------
+--------------------------------------------------------------------------------------------------*/
     // Verifica la existencia del usuario Y la contraseña.
     public boolean Verificar() {
         if (this.usuariosRepo.existeUsuario(getApplicationContext(), userEditText.getText().toString(), passEditText.getText().toString())) {
@@ -83,7 +85,7 @@ public class PantallaInicio extends ActionBarActivity {
             return false;
         }
     }
-
+//--------------------------------------------------------------------------------------------------
     // Llama a Verificar, si devuelve que existe, avanza a la siguiente página.
     public void Conectar(View view) {
 
@@ -98,6 +100,4 @@ public class PantallaInicio extends ActionBarActivity {
             startActivity(intent);
         }
     }
-
-
 }

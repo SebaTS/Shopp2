@@ -71,12 +71,9 @@ public class PantallaTomas extends ActionBarActivity {
             i++;
         }
     }
-
-
 /*--------------------------------------------------------------------------------------------------
 -------------------------------------- Private/helper methods --------------------------------------
 --------------------------------------------------------------------------------------------------*/
-
     private Spinner createSpinner() {
         Spinner spn = new Spinner(this);
         spn.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -87,7 +84,7 @@ public class PantallaTomas extends ActionBarActivity {
         spn.setGravity(3);
         return spn;
     }
-
+//--------------------------------------------------------------------------------------------------
     private LinearLayout createLayoutHorizontal() {
         LinearLayout layoutHorizontal = new LinearLayout(this);
         layoutHorizontal.setOrientation(LinearLayout.HORIZONTAL);
@@ -95,7 +92,7 @@ public class PantallaTomas extends ActionBarActivity {
 //        layoutHorizontal.setDividerDrawable();
         return layoutHorizontal;
     }
-
+//--------------------------------------------------------------------------------------------------
     private Button createIndicador(String btnText) {
         Button btn = new Button(this);
         btn.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -116,14 +113,12 @@ public class PantallaTomas extends ActionBarActivity {
         });
         return btn;
     }
-
+//--------------------------------------------------------------------------------------------------
     public void accederConfiguraciones (View view){
         Intent intent2 = new Intent (getApplicationContext(), PantallaConfiguraciones.class);
         startActivity(intent2);
     }
-
-
-
+//--------------------------------------------------------------------------------------------------
     public void btnGuardarClic (View view){
         Intent intentplanilla = new Intent (getApplicationContext(), PantallaPlanilla.class);
         startActivity(intentplanilla);
