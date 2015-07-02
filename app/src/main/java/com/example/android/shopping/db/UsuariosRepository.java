@@ -18,18 +18,10 @@ import java.sql.Statement;
  */
 public class UsuariosRepository {
 
-//    private ShoppingDBOpenHelper shoppingDBOpenHelper;
     public ArrayList<Usuario> listaDeUsuarios;
+
     private boolean recordarUsuario;
-/*
-    public UsuariosRepository() {
 
-        Usuario user = new Usuario("prueba", "prueba");
-        listaDeUsuarios = new ArrayList<Usuario>();
-        listaDeUsuarios.add(user);
-
-    }
-*/
     public UsuariosRepository(ResultSet resultSet) {
 
         listaDeUsuarios = new ArrayList<Usuario>();
