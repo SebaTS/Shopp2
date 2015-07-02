@@ -65,6 +65,8 @@ public class PantallaPlanilla extends ActionBarActivity {
 
         this.db = new DBConnection();
         db.sqlPantallaPlanilla.start();
+        this.locaciones = db.locacionesRepo;
+        this.filtros = db.filtrosRepo;
 
         this.boton = (Button) findViewById(R.id.btnIniciar);
         this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);
@@ -88,7 +90,6 @@ public class PantallaPlanilla extends ActionBarActivity {
 --------------------------------------------------------------------------------------------------*/
     private void selecionarItem() {
         // Modifica la lista al seleccionar un filtro.
-        this.locaciones = new LocacionesRepository();
         spinner.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     @Override
@@ -112,7 +113,6 @@ public class PantallaPlanilla extends ActionBarActivity {
 //--------------------------------------------------------------------------------------------------
     // Establece el adaptador para los filtros.
     private void createFiltrosAdapter() {
-        this.filtros = new FiltrosRepository();
         adaptadorFiltros = null;
         adaptadorFiltros = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, filtros.listaDeFiltros);
         spinner.setAdapter(adaptadorFiltros);
@@ -121,14 +121,14 @@ public class PantallaPlanilla extends ActionBarActivity {
     // Establece el adaptador para las locaciones.
     private void actualizarListaDeLocaciones(int filtro) {
         adaptadorLocaciones = null;
-        adaptadorLocaciones = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , locaciones.obtenerLocaciones(filtro));
+        adaptadorLocaciones = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , locaciones.listaDeLocaciones);
         listview.setAdapter(adaptadorLocaciones);
     }
 //--------------------------------------------------------------------------------------------------
     // Abre PantallaTomas al seleccionar una locación.
     private void seleccionarLocacion (int locacionSeleccionada){
         Intent intent = new Intent (getApplicationContext(), PantallaTomas.class);
-        String prueba = locaciones.obtenerLocaciones(filtroSeleccionado).get(locacionSeleccionada);
+        String prueba = locaciones.listaDeLocaciones.get(locacionSeleccionada);
         intent.putExtra("Prueba", prueba);
         String user = tvwUsuario.getText().toString();
         intent.putExtra("Usuario", user);

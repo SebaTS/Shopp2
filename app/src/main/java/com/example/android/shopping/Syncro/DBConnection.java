@@ -5,11 +5,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.android.shopping.Entidades.Filtro;
+import com.example.android.shopping.Entidades.Indicador;
 import com.example.android.shopping.Entidades.Recorrida;
 import com.example.android.shopping.Entidades.Usuario;
 import com.example.android.shopping.R;
 import com.example.android.shopping.db.EdificiosRepository;
+import com.example.android.shopping.db.EvaluacionesRepository;
 import com.example.android.shopping.db.FiltrosRepository;
+import com.example.android.shopping.db.IndicadoresRepository;
 import com.example.android.shopping.db.LocacionesRepository;
 import com.example.android.shopping.db.RecorridasRepository;
 import com.example.android.shopping.db.UsuariosRepository;
@@ -23,26 +27,23 @@ import java.util.ArrayList;
 
 public class DBConnection extends ActionBarActivity {
 
-    private UsuariosRepository usuariosRepo;
+    public UsuariosRepository usuariosRepo;
+    public EdificiosRepository edificiosRepo;
+    public RecorridasRepository recorridasRepo;
+    public LocacionesRepository locacionesRepo;
+    public FiltrosRepository filtrosRepo;
+    public IndicadoresRepository indicadoresRepo;
+    public EvaluacionesRepository evaluacionesRepo;
 
-    public Thread sqlThread = new Thread() {
+    public Thread sqlUsuarios = new Thread() {
         public void run() {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
                 String stsql = "SELECT Usuario, Contraseña FROM Usuarios";
                 Statement st = conn.createStatement();
-//          st.executeUpdate(stsql);
-                ResultSet result1 = st.executeQuery(stsql);
-/*            while (result1.next()) {
-                String usuario = result1.getString("Usuario");
-                String contraseña = result1.getString("Contraseña");
-                Usuario u = new Usuario(usuario, contraseña);
-                usuariosRepo = new UsuariosRepository();
-                usuariosRepo.listaDeUsuarios = new ArrayList<Usuario>();
-                usuariosRepo.listaDeUsuarios.add(u);
-               }*/
-                new UsuariosRepository(result1);
+                ResultSet resultadoUsuarios = st.executeQuery(stsql);
+                usuariosRepo = new UsuariosRepository(resultadoUsuarios);
                 st.close();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -52,29 +53,33 @@ public class DBConnection extends ActionBarActivity {
         }
     };
 
-    public Thread sqlPantallaEdificios = new Thread() {
+    public Thread sqlEdificios = new Thread() {
         public void run() {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
                 String stsql = "SELECT Descripcion FROM Edificios";
                 Statement st = conn.createStatement();
-                ResultSet result2 = st.executeQuery(stsql);
-                new EdificiosRepository(result2);
+                ResultSet resultadoEdificios = st.executeQuery(stsql);
+                edificiosRepo = new EdificiosRepository(resultadoEdificios);
                 st.close();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+    };
 
+    public Thread sqlRecorridas = new Thread() {
+        public void run() {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
                 String stsql = "SELECT Descripcion FROM Recorridas";
                 Statement st = conn.createStatement();
-                ResultSet result3 = st.executeQuery(stsql);
-                new RecorridasRepository(result3);
+                ResultSet resultadoRecorridas = st.executeQuery(stsql);
+                recorridasRepo = new RecorridasRepository(resultadoRecorridas);
                 st.close();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -85,29 +90,15 @@ public class DBConnection extends ActionBarActivity {
         }
     };
 
-    public Thread sqlPantallaPlanilla = new Thread() {
+    public Thread sqlLocaciones = new Thread() {
         public void run() {
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
                 String stsql = "SELECT Descripcion FROM Locaciones";
                 Statement st = conn.createStatement();
-                ResultSet result4 = st.executeQuery(stsql);
-                new LocacionesRepository(result4);
-                st.close();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
-                String stsql = "SELECT Descripcion FROM Filtros";
-                Statement st = conn.createStatement();
-                ResultSet result5 = st.executeQuery(stsql);
-                new FiltrosRepository(result5);
+                ResultSet resultadoLocaciones = st.executeQuery(stsql);
+                locacionesRepo = new LocacionesRepository(resultadoLocaciones);
                 st.close();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -117,25 +108,60 @@ public class DBConnection extends ActionBarActivity {
         }
     };
 
-}
-
-    /* PARA CUANDO SE TENGAN QUE FIGURAR LAS LOCACIONES DE LA RECORRIDA
-
-            try{
+    public Thread sqlFiltros = new Thread() {
+        public void run() {
+            try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
-                String stsql = "SELECT Descripcion FROM Locaciones";
+                String stsql = "SELECT Descripcion FROM Filtros";
                 Statement st = conn.createStatement();
-                ResultSet result3 = st.executeQuery(stsql);
-                new Recorrida(result3);
+                ResultSet resultadoFiltros = st.executeQuery(stsql);
+                filtrosRepo = new FiltrosRepository(resultadoFiltros);
                 st.close();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (SQLException e) {
                 e.printStackTrace();
-
             }
-     */
+        }
+    };
+
+    public Thread sqlIndicadores = new Thread() {
+        public void run() {
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
+                String stsql = "SELECT Descripcion FROM Indicadores";
+                Statement st = conn.createStatement();
+                ResultSet resultadoIndicadores = st.executeQuery(stsql);
+                indicadoresRepo = new IndicadoresRepository(resultadoIndicadores);
+                st.close();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    public Thread sqlEvaluaciones = new Thread() {
+        public void run() {
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
+                String stsql = "SELECT Descripcion FROM Evaluaciones";
+                Statement st = conn.createStatement();
+                ResultSet resultadoEvaluaciones = st.executeQuery(stsql);
+                evaluacionesRepo = new EvaluacionesRepository(resultadoEvaluaciones);
+                st.close();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+}
 
 
 

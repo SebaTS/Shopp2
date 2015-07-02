@@ -18,7 +18,7 @@ import java.sql.Statement;
  */
 public class UsuariosRepository {
 
-    private ShoppingDBOpenHelper shoppingDBOpenHelper;
+//    private ShoppingDBOpenHelper shoppingDBOpenHelper;
     public ArrayList<Usuario> listaDeUsuarios;
     private boolean recordarUsuario;
 /*

@@ -27,8 +27,6 @@ public class PantallaEdificios extends ActionBarActivity {
 
     private TextView tvwUsuario;
     String newString;
-    private EdificiosRepository edificios;
-    private RecorridasRepository recorridas;
     private ArrayAdapter<String> adaptadorEdificios;
     private ArrayAdapter<String> adaptadorRecorridas;
     private Spinner spnedif;
@@ -41,7 +39,8 @@ public class PantallaEdificios extends ActionBarActivity {
         setContentView(R.layout.activity_pantalla_edificios);
 
         this.db = new DBConnection();
-        db.sqlPantallaEdificios.start();
+        db.sqlEdificios.start();
+        db.sqlRecorridas.start();
         AdaptadoresSpinners();
 
         // El usuario se setea con el usuario logueado.
@@ -56,12 +55,12 @@ public class PantallaEdificios extends ActionBarActivity {
     private void AdaptadoresSpinners() {
         this.spnedif = (Spinner) findViewById(R.id.spnEdificio);
         adaptadorEdificios = null;
-        adaptadorEdificios = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, edificios.listaDeEdificios);
+        adaptadorEdificios = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, db.edificiosRepo.listaDeEdificios);
         spnedif.setAdapter(adaptadorEdificios);
 
         this.spnreco = (Spinner) findViewById(R.id.spnRecorrida);
         adaptadorRecorridas = null;
-        adaptadorRecorridas = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, recorridas.listaDeRecorridas);
+        adaptadorRecorridas = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, db.recorridasRepo.listaDeRecorridas);
         spnreco.setAdapter(adaptadorRecorridas);
     }
 //--------------------------------------------------------------------------------------------------

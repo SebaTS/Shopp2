@@ -17,14 +17,15 @@ public class RecorridasRepository {
 
     public ArrayList<String> listaDeRecorridas;
 
-    public RecorridasRepository(ResultSet resultSet){
+    public RecorridasRepository(ResultSet resultSet) {
 
         listaDeRecorridas = new ArrayList<String>();
         listaDeRecorridas = null;
         try {
             while (resultSet.next()) {
                 String descr = resultSet.getString("Descripcion");
-                listaDeRecorridas.add(descr);
+                Locacion l = new Locacion(descr);
+                listaDeRecorridas.add(l.getDescripcion());
             }
         } catch (SQLException e) {
             e.printStackTrace();
