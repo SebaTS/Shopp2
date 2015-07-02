@@ -14,7 +14,7 @@ public class Indicador {
         return descr;
     }
 
-    public Indicador (String locacion, String indicador){
+    public Indicador (String indicador){
         this.setdescr(indicador);
     }
 }
