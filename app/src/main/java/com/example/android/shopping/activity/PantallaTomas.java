@@ -12,30 +12,26 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.android.shopping.Entidades.Indicador;
 import com.example.android.shopping.R;
-import com.example.android.shopping.db.EvaluacionesRepository;
-import com.example.android.shopping.db.IndicadoresRepository;
-
-import java.util.List;
-
+import com.example.android.shopping.Syncro.DBConnection;
 
 public class PantallaTomas extends ActionBarActivity {
-
 
     private EditText tvwlugar;
     String newString;
     private ArrayAdapter<String> adaptadorSpinner;
-    private EvaluacionesRepository evaluacion;
     public String indicador = new String();
-    private IndicadoresRepository indicadores;
-
     private TextView tvwUsuario;
-    private String user;
+    private DBConnection db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_tomas);
+
+        db = new DBConnection();
+        db.sqlIndicadores.start();
+        db.sqlEvaluaciones.start();
 
         // El usuario se setea con el usuario logueado.
         this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);
@@ -50,18 +46,16 @@ public class PantallaTomas extends ActionBarActivity {
         tvwlugar.setText(newString);
 
         // Se debe hacer un COUNT de los indicadores.
-        indicadores = new IndicadoresRepository(2);
-        List<Indicador> listaIndicadores = indicadores.getIndicadores(2);
-        int countIndicadores= listaIndicadores.size();
+        int countIndicadores = db.indicadoresRepo.listaDeIndicadores.size();
         Spinner[] spnIndicador = new Spinner[countIndicadores];
         final Button[] btnIndicador = new Button[countIndicadores];
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayout5656);
 
         int i = 0;
-        for(Indicador ind : listaIndicadores) {
+        for(String ind : db.indicadoresRepo.listaDeIndicadores) {
             // Se agregan dinámicamente los controles de la pantalla
             LinearLayout layoutHorizontal = createLayoutHorizontal();
-            btnIndicador[i] = this.createIndicador(ind.getdescr());
+            btnIndicador[i] = this.createIndicador(ind);
             spnIndicador[i] = this.createSpinner();
 
             layoutHorizontal.addView(btnIndicador[i]);
@@ -77,9 +71,8 @@ public class PantallaTomas extends ActionBarActivity {
     private Spinner createSpinner() {
         Spinner spn = new Spinner(this);
         spn.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        this.evaluacion = new EvaluacionesRepository();
         adaptadorSpinner = null;
-        adaptadorSpinner = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, evaluacion.listaDeEvaluaciones);
+        adaptadorSpinner = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, db.evaluacionesRepo.listaDeEvaluaciones);
         spn.setAdapter(adaptadorSpinner);
         spn.setGravity(3);
         return spn;
@@ -119,7 +112,7 @@ public class PantallaTomas extends ActionBarActivity {
         startActivity(intent2);
     }
 //--------------------------------------------------------------------------------------------------
-    public void btnGuardarClic (View view){
+    public void btnGuardarClick (View view){
         Intent intentplanilla = new Intent (getApplicationContext(), PantallaPlanilla.class);
         startActivity(intentplanilla);
     }

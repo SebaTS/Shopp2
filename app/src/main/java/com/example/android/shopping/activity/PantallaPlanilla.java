@@ -40,16 +40,13 @@ import java.util.ArrayList;
 
 import static android.R.layout.*;
 
-
 public class PantallaPlanilla extends ActionBarActivity {
 
     protected ArrayAdapter<CharSequence> adapter;
     private Button boton;
     private Spinner spinner;
     private ListView listview;
-    private LocacionesRepository locaciones;
     private ArrayAdapter<String> adaptadorLocaciones;
-    private FiltrosRepository filtros;
     private ArrayAdapter<String> adaptadorFiltros;
     public EditText tvwlugar;
     String newString;
@@ -64,9 +61,8 @@ public class PantallaPlanilla extends ActionBarActivity {
         setContentView(R.layout.activity_pantalla_planilla);
 
         this.db = new DBConnection();
-        db.sqlPantallaPlanilla.start();
-        this.locaciones = db.locacionesRepo;
-        this.filtros = db.filtrosRepo;
+        db.sqlFiltros.start();
+        db.sqlLocaciones.start();
 
         this.boton = (Button) findViewById(R.id.btnIniciar);
         this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);
@@ -114,21 +110,21 @@ public class PantallaPlanilla extends ActionBarActivity {
     // Establece el adaptador para los filtros.
     private void createFiltrosAdapter() {
         adaptadorFiltros = null;
-        adaptadorFiltros = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, filtros.listaDeFiltros);
+        adaptadorFiltros = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, db.filtrosRepo.listaDeFiltros);
         spinner.setAdapter(adaptadorFiltros);
     }
 //--------------------------------------------------------------------------------------------------
     // Establece el adaptador para las locaciones.
     private void actualizarListaDeLocaciones(int filtro) {
         adaptadorLocaciones = null;
-        adaptadorLocaciones = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , locaciones.listaDeLocaciones);
+        adaptadorLocaciones = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , db.locacionesRepo.listaDeLocaciones);
         listview.setAdapter(adaptadorLocaciones);
     }
 //--------------------------------------------------------------------------------------------------
     // Abre PantallaTomas al seleccionar una locación.
     private void seleccionarLocacion (int locacionSeleccionada){
         Intent intent = new Intent (getApplicationContext(), PantallaTomas.class);
-        String prueba = locaciones.listaDeLocaciones.get(locacionSeleccionada);
+        String prueba = db.locacionesRepo.listaDeLocaciones.get(locacionSeleccionada);
         intent.putExtra("Prueba", prueba);
         String user = tvwUsuario.getText().toString();
         intent.putExtra("Usuario", user);

@@ -20,7 +20,7 @@ import java.sql.Statement;
  */
 public class IndicadoresRepository {
 
-    private ArrayList<String> listaDeIndicadores;
+    public ArrayList<String> listaDeIndicadores;
 
     // Llena al array con los edificios.
     public IndicadoresRepository(ResultSet resultSet) {
