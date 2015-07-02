@@ -1,16 +1,10 @@
 package com.example.android.shopping.db;
 
-import android.widget.ArrayAdapter;
-
 import com.example.android.shopping.Entidades.Filtro;
 
-import java.util.ArrayList;
-
 import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Created by Seba on 12/06/2015.
@@ -23,7 +17,7 @@ public class FiltrosRepository {
     public FiltrosRepository(ResultSet resultSet) {
 
         listaDeFiltros = new ArrayList<String>();
-        listaDeFiltros = null;
+        //listaDeFiltros = null;
         try {
             while (resultSet.next()) {
                 String descr = resultSet.getString("Descripcion");

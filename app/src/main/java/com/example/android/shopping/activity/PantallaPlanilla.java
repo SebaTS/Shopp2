@@ -1,44 +1,20 @@
 package com.example.android.shopping.activity;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.android.shopping.Entidades.Filtro;
-import com.example.android.shopping.Entidades.Locacion;
 import com.example.android.shopping.R;
-import com.example.android.shopping.db.FiltrosRepository;
-import com.example.android.shopping.db.LocacionesRepository;
-
-import org.w3c.dom.Text;
-
-import java.security.KeyStore;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.example.android.shopping.Syncro.DBConnection;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-
-import static android.R.layout.*;
 
 public class PantallaPlanilla extends ActionBarActivity {
 
@@ -61,8 +37,8 @@ public class PantallaPlanilla extends ActionBarActivity {
         setContentView(R.layout.activity_pantalla_planilla);
 
         this.db = new DBConnection();
-        db.sqlFiltros.start();
-        db.sqlLocaciones.start();
+       // db.sqlFiltros.start();
+        //db.sqlLocaciones.start();
 
         this.boton = (Button) findViewById(R.id.btnIniciar);
         this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);

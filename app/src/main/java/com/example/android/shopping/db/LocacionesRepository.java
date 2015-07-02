@@ -1,17 +1,10 @@
 package com.example.android.shopping.db;
 
-import android.database.sqlite.SQLiteDatabase;
-
 import com.example.android.shopping.Entidades.Locacion;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Created by android on 04/06/2015.
@@ -29,12 +22,12 @@ public class LocacionesRepository {
     public LocacionesRepository(ResultSet resultSet) {
 
         listaDeLocaciones = new ArrayList<String>();
-        listaDeLocaciones = null;
+        //listaDeLocaciones = null;
         try {
             while (resultSet.next()) {
                 String descr = resultSet.getString("Descripcion");
                 Locacion l = new Locacion(descr);
-                listaDeLocaciones.add(l.getDescripcion());
+                listaDeLocaciones.add(l.getdescripcion());
             }
         } catch (SQLException e) {
             e.printStackTrace();

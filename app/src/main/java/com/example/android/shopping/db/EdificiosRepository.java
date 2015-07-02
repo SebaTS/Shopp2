@@ -2,13 +2,9 @@ package com.example.android.shopping.db;
 
 import com.example.android.shopping.Entidades.Edificio;
 
-import java.util.ArrayList;
-
 import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Created by android on 25/06/2015.
@@ -21,7 +17,7 @@ public class EdificiosRepository {
     public EdificiosRepository(ResultSet resultSet) {
 
         listaDeEdificios = new ArrayList<String>();
-        listaDeEdificios = null;
+       //listaDeEdificios = null;
         try {
             while (resultSet.next()) {
                 String descr = resultSet.getString("Descripcion");

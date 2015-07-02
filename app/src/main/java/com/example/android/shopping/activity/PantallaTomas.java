@@ -30,8 +30,8 @@ public class PantallaTomas extends ActionBarActivity {
         setContentView(R.layout.activity_pantalla_tomas);
 
         db = new DBConnection();
-        db.sqlIndicadores.start();
-        db.sqlEvaluaciones.start();
+       // db.sqlIndicadores.start();
+       // db.sqlEvaluaciones.start();
 
         // El usuario se setea con el usuario logueado.
         this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);

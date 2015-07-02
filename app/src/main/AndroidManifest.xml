@@ -31,6 +31,10 @@
             android:label="@string/title_activity_pantalla_asignados_detalle" >
         </activity>
         <activity
+            android:name=".activity.PantallaEdificios"
+            android:label="@string/title_activity_pantalla_edificios" >
+        </activity>
+        <activity
             android:name=".activity.PantallaConfiguraciones"
             android:label="@string/title_activity_pantalla_configuraciones" >
         </activity>

@@ -28,6 +28,7 @@ public class PantallaInicio extends ActionBarActivity {
 
         this.db = new DBConnection();
         db.sqlUsuarios.start();
+        db.sqlEdificios.start();
     }
 
 /*--------------------------------------------------------------------------------------------------
@@ -40,7 +41,7 @@ public class PantallaInicio extends ActionBarActivity {
             db.usuariosRepo.setRecordarUsuario(sesion.isChecked());
             if (sesion.isChecked()) {
             }
-            Intent intent = new Intent(getApplicationContext(), PantallaPlanilla.class);
+            Intent intent = new Intent(getApplicationContext(), PantallaEdificios.class);
             String user = userEditText.getText().toString();
             intent.putExtra("Usuario", user);
 //            intent.putExtra("DB", db);

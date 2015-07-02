@@ -1,19 +1,10 @@
 package com.example.android.shopping.db;
 
-import android.widget.Switch;
-
 import com.example.android.shopping.Entidades.Indicador;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.zip.InflaterInputStream;
-
 import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Created by android on 04/06/2015.
@@ -26,7 +17,7 @@ public class IndicadoresRepository {
     public IndicadoresRepository(ResultSet resultSet) {
 
         listaDeIndicadores = new ArrayList<String>();
-        listaDeIndicadores = null;
+        //listaDeIndicadores = null;
         try {
             while (resultSet.next()) {
                 String descr = resultSet.getString("Descripcion");

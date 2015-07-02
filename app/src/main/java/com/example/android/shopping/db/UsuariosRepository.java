@@ -1,17 +1,12 @@
 package com.example.android.shopping.db;
 
 import android.content.Context;
-import android.database.Cursor;
 
 import com.example.android.shopping.Entidades.Usuario;
 
-import java.util.ArrayList;
-
 import java.sql.ResultSet;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * Created by android on 04/06/2015.
@@ -25,7 +20,7 @@ public class UsuariosRepository {
     public UsuariosRepository(ResultSet resultSet) {
 
         listaDeUsuarios = new ArrayList<Usuario>();
-        listaDeUsuarios = null;
+        //listaDeUsuarios = null;
         try {
             while (resultSet.next()) {
                 String usuario = resultSet.getString("Usuario");
