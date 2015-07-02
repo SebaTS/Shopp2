@@ -44,8 +44,9 @@ public class DBConnection extends ActionBarActivity {
         }
     };
 
-    public Thread sqlEdificios = new Thread() {
-        public void run() {
+//    public Thread sqlEdificios = new Thread() {
+//        public void run() {
+        public void sqlEdificios(){
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
@@ -60,10 +61,11 @@ public class DBConnection extends ActionBarActivity {
                 e.printStackTrace();
             }
         }
-    };
+//    };
 
-    public Thread sqlRecorridas = new Thread() {
-        public void run() {
+//    public Thread sqlRecorridas = new Thread() {
+//        public void run() {
+        public void sqlRecorridas(){
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
@@ -79,7 +81,7 @@ public class DBConnection extends ActionBarActivity {
 
             }
         }
-    };
+//    };
 
     public Thread sqlLocaciones = new Thread() {
         public void run() {

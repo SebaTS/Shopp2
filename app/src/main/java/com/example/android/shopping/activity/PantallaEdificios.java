@@ -29,8 +29,10 @@ public class PantallaEdificios extends ActionBarActivity {
         setContentView(R.layout.activity_pantalla_edificios);
 
         this.db = new DBConnection();
-        //db.sqlEdificios.start();
-        //db.sqlRecorridas.start();
+        db.sqlEdificios();
+        db.sqlRecorridas();
+//        db.sqlEdificios.start();
+//        db.sqlRecorridas.start();
         AdaptadoresSpinners();
 
         // El usuario se setea con el usuario logueado.
@@ -64,4 +66,3 @@ public class PantallaEdificios extends ActionBarActivity {
         startActivity(intentPlanilla);
     }
 }
-
