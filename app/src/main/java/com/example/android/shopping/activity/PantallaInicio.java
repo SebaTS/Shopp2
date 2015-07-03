@@ -28,7 +28,6 @@ public class PantallaInicio extends ActionBarActivity {
 
         this.db = new DBConnection();
         db.sqlUsuarios.start();
-        db.sqlEdificios.start();
     }
 
 /*--------------------------------------------------------------------------------------------------

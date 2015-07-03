@@ -21,7 +21,7 @@ public class RecorridasRepository {
             while (resultSet.next()) {
                 String descr = resultSet.getString("Descripcion");
                 Locacion l = new Locacion(descr);
-                listaDeRecorridas.add(l.getdescripcion());
+                listaDeRecorridas.add(l.getDescripcion());
             }
         } catch (SQLException e) {
             e.printStackTrace();
