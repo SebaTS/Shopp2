@@ -27,7 +27,7 @@ public class LocacionesRepository {
             while (resultSet.next()) {
                 String descr = resultSet.getString("Descripcion");
                 Locacion l = new Locacion(descr);
-                listaDeLocaciones.add(l.getDescripcion());
+                listaDeLocaciones.add(l.getdescripcion());
             }
         } catch (SQLException e) {
             e.printStackTrace();
