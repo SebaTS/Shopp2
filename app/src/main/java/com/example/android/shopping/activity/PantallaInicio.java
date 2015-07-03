@@ -26,7 +26,7 @@ public class PantallaInicio extends ActionBarActivity {
         this.passEditText = (EditText) this.findViewById(R.id.txtContrasena);
         this.sesion = (CheckBox) this.findViewById(R.id.chkSesion);
 
-        this.db = new DBConnection();
+//        this.db = new DBConnection();
         db.sqlUsuarios.start();
     }
 

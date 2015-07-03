@@ -26,6 +26,8 @@ public class DBConnection extends ActionBarActivity {
     public IndicadoresRepository indicadoresRepo;
     public EvaluacionesRepository evaluacionesRepo;
 
+
+
     public Thread sqlUsuarios = new Thread() {
         public void run() {
             try {
