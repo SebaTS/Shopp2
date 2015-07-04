@@ -9,5 +9,6 @@
     <string name="title_activity_pantalla_configuraciones">PantallaConfiguraciones</string>
     <string name="title_activity_panalla_adicional">PanallaAdicional</string>
     <string name="title_activity_itemlistrow">itemlistrow</string>
+    <string name="title_activity_pantalla_edificios">PantallaEdificios</string>
 
 </resources>

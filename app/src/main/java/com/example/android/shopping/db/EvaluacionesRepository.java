@@ -2,6 +2,8 @@ package com.example.android.shopping.db;
 
 import com.example.android.shopping.Entidades.Evaluacion;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -11,6 +13,26 @@ public class EvaluacionesRepository {
 
     public ArrayList<String> listaDeEvaluaciones;
 
+    public EvaluacionesRepository(ResultSet resultSet) {
+
+        listaDeEvaluaciones = new ArrayList<String>();
+       // listaDeEvaluaciones = null;
+        try {
+            while (resultSet.next()) {
+                String descr = resultSet.getString("Descripcion");
+                Evaluacion e = new Evaluacion(descr);
+                listaDeEvaluaciones.add(e.getestado());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+
+
+/*
     public EvaluacionesRepository(){
         listaDeEvaluaciones = new ArrayList<String>();
 
@@ -27,3 +49,4 @@ public class EvaluacionesRepository {
 
 
 }
+*/

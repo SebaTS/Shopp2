@@ -1,9 +1,9 @@
 package com.example.android.shopping.db;
 
-import android.widget.ArrayAdapter;
-
 import com.example.android.shopping.Entidades.Filtro;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -14,8 +14,22 @@ public class FiltrosRepository {
     public ArrayList<String> listaDeFiltros;
 
     // Llena el array con los filtros.
-    public FiltrosRepository() {
-        Filtro malls = new Filtro("Malls");
+    public FiltrosRepository(ResultSet resultSet) {
+
+        listaDeFiltros = new ArrayList<String>();
+        //listaDeFiltros = null;
+        try {
+            while (resultSet.next()) {
+                String descr = resultSet.getString("Descripcion");
+                Filtro f = new Filtro(descr);
+                listaDeFiltros.add(f.getfiltro());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+/*        Filtro malls = new Filtro("Malls");
         Filtro estacionamientos = new Filtro("Estacionamientos");
         Filtro baños = new Filtro("Baños");
         Filtro ascensores = new Filtro("Ascensores");
@@ -38,3 +52,4 @@ public class FiltrosRepository {
 //        }
     }
 }
+*/

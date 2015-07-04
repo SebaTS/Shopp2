@@ -1,7 +1,11 @@
 package com.example.android.shopping.db;
 
+import android.content.Context;
+
 import com.example.android.shopping.Entidades.Usuario;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -9,26 +13,33 @@ import java.util.ArrayList;
  */
 public class UsuariosRepository {
 
-    private ArrayList<Usuario> listaDeUsuarios;
+    public ArrayList<Usuario> listaDeUsuarios;
+
     private boolean recordarUsuario;
 
-    public UsuariosRepository() {
+    public UsuariosRepository(ResultSet resultSet) {
 
-        Usuario user = new Usuario("prueba", "prueba");
         listaDeUsuarios = new ArrayList<Usuario>();
-        listaDeUsuarios.add(user);
-
+        //listaDeUsuarios = null;
+        try {
+            while (resultSet.next()) {
+                String usuario = resultSet.getString("Usuario");
+                String contraseña = resultSet.getString("Contraseña");
+                Usuario u = new Usuario(usuario, contraseña);
+                listaDeUsuarios.add(u);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public boolean existeUsuario(String username, String pwd) {
+    public boolean existeUsuario(Context context, String username, String pwd) {
         for (Usuario u : listaDeUsuarios) {
             if (u.getuser().equals(username) && u.getpass().equals(pwd)) {
                 return true;
             }
         }
-
         return false;
-
     }
 
     public void setRecordarUsuario(boolean recordarUsuario) {

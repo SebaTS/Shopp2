@@ -5,16 +5,16 @@ package com.example.android.shopping.Entidades;
  */
 public class Locacion {
 
-    private String descripcion;
+private String descripcion;
 
-    public void setDescripcion(String locacion) {
+    public void setdescripcion(String locacion) {
         this.descripcion = locacion;
     }
-    public String getDescripcion() {
+    public String getdescripcion() {
         return descripcion;
     }
 
     public Locacion(String locacion){
-        this.setDescripcion(locacion);
+        this.setdescripcion(locacion);
     }
 }

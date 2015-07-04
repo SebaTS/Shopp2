@@ -1,11 +1,10 @@
 package com.example.android.shopping.db;
 
-import android.database.sqlite.SQLiteDatabase;
-
 import com.example.android.shopping.Entidades.Locacion;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by android on 04/06/2015.
@@ -13,15 +12,31 @@ import java.util.List;
 public class LocacionesRepository {
 
     public ArrayList<String> listaDeLocaciones;
-    public ArrayList<String> listaDeLocacionesMall;
-    public ArrayList<String> listaDeLocacionesEstacionamientos;
-    public ArrayList<String> listaDeLocacionesBaños;
-    public ArrayList<String> listaDeLocacionesAscensores;
-    public ArrayList<String> listaDeLocacionesEscalerasM;
+//    public ArrayList<String> listaDeLocacionesMall;
+//    public ArrayList<String> listaDeLocacionesEstacionamientos;
+//    public ArrayList<String> listaDeLocacionesBaños;
+//    public ArrayList<String> listaDeLocacionesAscensores;
+//    public ArrayList<String> listaDeLocacionesEscalerasM;
 
     // Llena al array con las locaciones.
-    public LocacionesRepository() {
+    public LocacionesRepository(ResultSet resultSet) {
 
+        listaDeLocaciones = new ArrayList<String>();
+        //listaDeLocaciones = null;
+        try {
+            while (resultSet.next()) {
+                String descr = resultSet.getString("Descripcion");
+                Locacion l = new Locacion(descr);
+                listaDeLocaciones.add(l.getdescripcion());
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+/*
         listaDeLocaciones = new ArrayList<String>();
         listaDeLocacionesMall = new ArrayList<String>();
         listaDeLocacionesEstacionamientos = new ArrayList<String>();
@@ -268,4 +283,4 @@ public class LocacionesRepository {
 
     // Devuelve el array de locaciones.
 //    public List<Locacion> obtenerTodasLasCategorias() {        return this.listaDeLocaciones;    }
-}
+}*/

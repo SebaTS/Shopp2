@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.shopping" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -27,6 +29,10 @@
         <activity
             android:name=".activity.PantallaIndicadores"
             android:label="@string/title_activity_pantalla_asignados_detalle" >
+        </activity>
+        <activity
+            android:name=".activity.PantallaEdificios"
+            android:label="@string/title_activity_pantalla_edificios" >
         </activity>
         <activity
             android:name=".activity.PantallaConfiguraciones"

@@ -25,10 +25,10 @@
                 android:id="@+id/btnconfig"
                 android:layout_gravity="right"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/tvwusuario"
+                android:layout_toRightOf="@+id/tvwUsuario"
                 android:layout_marginLeft="230dp"
                 android:layout_marginStart="230dp"
-                android:layout_alignBottom="@+id/tvwusuario"
+                android:layout_alignBottom="@+id/tvwUsuario"
                 android:background="@drawable/tuerca"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Usuario"
-                android:id="@+id/tvwusuario"
+                android:id="@+id/tvwUsuario"
                 android:textSize="23dp"
                 android:textColor="#ff000000" />
         </RelativeLayout>
@@ -59,7 +59,7 @@
 
         <ScrollView
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:id="@+id/scrollView"
             android:layout_centerHorizontal="true" >
 
@@ -90,14 +90,15 @@
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enviar"
-                android:id="@+id/btnEnviar"
+                android:text="Guardar"
+                android:id="@+id/btnGuardar"
                 android:textSize="25dp"
                 android:layout_gravity="center_horizontal"
-                android:onClick="btnEnviarClick"
+                android:onClick="btnGuardarClick"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:gravity="center_horizontal" />
+            android:gravity="center_vertical|center_horizontal"
+            android:background="@drawable/btnnopres" />
     </LinearLayout>
 
 </RelativeLayout>
