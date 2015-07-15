@@ -29,7 +29,6 @@ public class PantallaTomas extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_tomas);
 
-        db = new DBConnection();
        // db.sqlIndicadores.start();
        // db.sqlEvaluaciones.start();
 

@@ -28,9 +28,8 @@ public class PantallaEdificios extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_edificios);
 
-        this.db = new DBConnection();
-        db.sqlEdificios();
-        db.sqlRecorridas();
+        db.sqlEdificios.start();
+        db.sqlRecorridas.start();
 //        db.sqlEdificios.start();
 //        db.sqlRecorridas.start();
         AdaptadoresSpinners();
