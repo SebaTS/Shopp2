@@ -25,30 +25,32 @@ public class DBConnection extends ActionBarActivity {
     public FiltrosRepository filtrosRepo;
     public IndicadoresRepository indicadoresRepo;
     public EvaluacionesRepository evaluacionesRepo;
-    private Connection conn;
     private DBConnection db;
+    private Connection conn;
 
-    private DBConnection(){
+    public DBConnection(){}
+/*
+    private Connection crearConnection(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping", "root", "puerta18");
         }catch (ClassNotFoundException e) {
             e.printStackTrace();
         }catch (SQLException e) {
             e.printStackTrace();
         }
+        return conn;
     }
 
-    public Connection ExisteConexion(){
+    private Connection ExisteConexion(){
         if(db == null){
             db = new DBConnection();
         }
-        return db.conn;
+        return conn;
     }
 
-    public Thread sqlUsuarios = new Thread() {
-        public void run() {
-            ExisteConexion();
+    public void sqlUsuarios() {
+            conn = crearConnection();
             try {
                 String stsql = "SELECT Usuario, Contraseña FROM Usuarios";
                 Statement st = conn.createStatement();
@@ -58,8 +60,25 @@ public class DBConnection extends ActionBarActivity {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+    }
+*/
+public Thread sqlUsuarios = new Thread() {
+    public void run() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping", "root", "puerta18");
+            String stsql = "SELECT Usuario, Contraseña FROM Usuarios";
+            Statement st = conn.createStatement();
+            ResultSet resultadoUsuarios = st.executeQuery(stsql);
+            usuariosRepo = new UsuariosRepository(resultadoUsuarios);
+            st.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-    };
+    }
+};
 
     public Thread sqlEdificios = new Thread() {
         public void run() {
