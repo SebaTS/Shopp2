@@ -43,7 +43,6 @@ public class PantallaInicio extends ActionBarActivity {
             Intent intent = new Intent(getApplicationContext(), PantallaEdificios.class);
             String user = userEditText.getText().toString();
             intent.putExtra("Usuario", user);
-//            intent.putExtra("DB", db);
             startActivity(intent);
         }
     }

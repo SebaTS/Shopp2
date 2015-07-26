@@ -32,6 +32,12 @@ public class PantallaEdificios extends ActionBarActivity {
         db.sqlEdificios.start();
         db.sqlRecorridas.start();
 
+        while(db.sqlEdificios.isAlive()){
+        }
+
+        while(db.sqlRecorridas.isAlive()){
+        }
+
         AdaptadoresSpinners();
 
         // El usuario se setea con el usuario logueado.
