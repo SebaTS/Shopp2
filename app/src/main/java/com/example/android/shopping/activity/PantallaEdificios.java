@@ -28,10 +28,10 @@ public class PantallaEdificios extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_edificios);
 
+        db = db.crearDBConnection();
         db.sqlEdificios.start();
         db.sqlRecorridas.start();
-//        db.sqlEdificios.start();
-//        db.sqlRecorridas.start();
+
         AdaptadoresSpinners();
 
         // El usuario se setea con el usuario logueado.
