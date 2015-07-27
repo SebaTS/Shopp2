@@ -36,8 +36,11 @@ public class PantallaPlanilla extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_planilla);
 
+        db = db.crearDBConnection();
         db.sqlFiltros.start();
         db.sqlLocaciones.start();
+        while(db.sqlFiltros.isAlive()){}
+        while(db.sqlLocaciones.isAlive()){}
 
         this.boton = (Button) findViewById(R.id.btnIniciar);
         this.tvwUsuario = (TextView) findViewById(R.id.tvwUsuario);

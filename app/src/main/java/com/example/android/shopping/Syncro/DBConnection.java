@@ -106,15 +106,12 @@ public class DBConnection extends ActionBarActivity {
     public Thread sqlLocaciones = new Thread() {
         public void run() {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
+                conn = ExisteConexion();
                 String stsql = "SELECT Descripcion FROM Locaciones";
                 Statement st = conn.createStatement();
                 ResultSet resultadoLocaciones = st.executeQuery(stsql);
                 locacionesRepo = new LocacionesRepository(resultadoLocaciones);
                 st.close();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -124,15 +121,12 @@ public class DBConnection extends ActionBarActivity {
     public Thread sqlFiltros = new Thread() {
         public void run() {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
+                conn = ExisteConexion();
                 String stsql = "SELECT Descripcion FROM Filtros";
                 Statement st = conn.createStatement();
                 ResultSet resultadoFiltros = st.executeQuery(stsql);
                 filtrosRepo = new FiltrosRepository(resultadoFiltros);
                 st.close();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -142,15 +136,12 @@ public class DBConnection extends ActionBarActivity {
     public Thread sqlIndicadores = new Thread() {
         public void run() {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
+                conn = ExisteConexion();
                 String stsql = "SELECT Descripcion FROM Indicadores";
                 Statement st = conn.createStatement();
                 ResultSet resultadoIndicadores = st.executeQuery(stsql);
                 indicadoresRepo = new IndicadoresRepository(resultadoIndicadores);
                 st.close();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -160,15 +151,12 @@ public class DBConnection extends ActionBarActivity {
     public Thread sqlEvaluaciones = new Thread() {
         public void run() {
             try {
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection conn = DriverManager.getConnection("jdbc:mysql://201.231.169.182:3306/shopping", "root", "puerta18");
+                conn = ExisteConexion();
                 String stsql = "SELECT Descripcion FROM Evaluaciones";
                 Statement st = conn.createStatement();
                 ResultSet resultadoEvaluaciones = st.executeQuery(stsql);
                 evaluacionesRepo = new EvaluacionesRepository(resultadoEvaluaciones);
                 st.close();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             } catch (SQLException e) {
                 e.printStackTrace();
             }

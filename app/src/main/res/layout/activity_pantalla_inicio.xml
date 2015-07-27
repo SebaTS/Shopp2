@@ -77,16 +77,6 @@
             android:id="@+id/relativeLayout2"
             android:layout_alignParentBottom="true">
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No cerrar sesión"
-                android:id="@+id/chkSesion"
-                android:textSize="25dp"
-                android:textColor="#ff000000"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
-
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,7 +85,7 @@
                 android:textSize="30dp"
                 android:onClick="Conectar"
                 android:background="@drawable/btnnopres"
-                android:layout_below="@+id/chkSesion"
+                android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
 
             <ImageView
